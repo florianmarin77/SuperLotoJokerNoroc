@@ -110,12 +110,12 @@ public class Sample {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Sample sample = (Sample) object;
-        return codex.equals(sample.codex) && number1.equals(sample.number1) && number2.equals(sample.number2) && number3.equals(sample.number3) && number4.equals(sample.number4) && number5.equals(sample.number5) && number6.equals(sample.number6) && index.equals(sample.index);
+        return number1.equals(sample.number1) && number2.equals(sample.number2) && number3.equals(sample.number3) && number4.equals(sample.number4) && number5.equals(sample.number5) && number6.equals(sample.number6);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codex, number1, number2, number3, number4, number5, number6, index);
+        return Objects.hash(number1, number2, number3, number4, number5, number6);
     }
 
     @Override
