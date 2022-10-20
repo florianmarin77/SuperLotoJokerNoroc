@@ -5,16 +5,8 @@ import java.util.Scanner;
 public class ConsoleMenu {
 
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static final boolean JOKER = false; // resource scenario
-
 
     public static void main(String[] args) {
-
-        if (JOKER) {
-            System.out.println("Welcome to Demo Module with numerical database resource!");
-        } else {
-            System.out.println("Welcome to Demo Module with alphabetical database resource!");
-        }
 
         boolean exitMainMenu = false;
         do {
@@ -26,34 +18,29 @@ public class ConsoleMenu {
                 }
                 break;
                 case 1: {
-                    boolean exitSingleMenu = false;
+                    boolean exitStartMenu = false;
                     do {
-                        displaySingleMenu();
-                        int selectedSingleOperation = SCANNER.nextInt();
-                        switch (selectedSingleOperation) {
+                        displayStartMenu();
+                        int selectedOperation = SCANNER.nextInt();
+                        switch (selectedOperation) {
                             case 0: {
-                                exitSingleMenu = true;
-                                System.out.println("#0 MAIN MENU exit");
+                                exitStartMenu = true;
                             }
                             break;
                             case 1: {
-                                Scanner scanner = new Scanner(System.in);
-                                System.out.println("CREATE => Please enter DATA (text string): ");
+                                System.out.println("SUPER 5/40");
                             }
                             break;
                             case 2: {
-                                Scanner scanner = new Scanner(System.in);
-                                System.out.println("READ => Please enter ID (integer number): ");
+                                System.out.println("LOTO 6/49");
                             }
                             break;
                             case 3: {
-                                Scanner scanner = new Scanner(System.in);
-                                System.out.println("UPDATE => Please enter ID (integer number): ");
+                                System.out.println("JOKER 5/45 + 1/20");
                             }
                             break;
                             case 4: {
-                                Scanner scanner = new Scanner(System.in);
-                                System.out.println("DELETE => Please enter ID (integer number): ");
+                                System.out.println("NOROC");
                             }
                             break;
                             default: {
@@ -61,7 +48,7 @@ public class ConsoleMenu {
                             }
                             break;
                         }
-                    } while (!exitSingleMenu);
+                    } while (!exitStartMenu);
                 }
                 break;
                 default: {
@@ -73,14 +60,14 @@ public class ConsoleMenu {
         System.out.println("Thank you!");
     }
 
-    private static void displaySingleMenu() {
-        System.out.println("SAMPLE MENU");
+    private static void displayStartMenu() {
+        System.out.println("START MENU");
         System.out.println("---------");
         System.out.println("0. Main menu");
-        System.out.println("1. Save single");
-        System.out.println("2. Find single");
-        System.out.println("3. Update single");
-        System.out.println("4. Delete single");
+        System.out.println("1. Super 5/40");
+        System.out.println("2. Loto 6/49");
+        System.out.println("3. Joker 5/45+1/20");
+        System.out.println("4. Noroc");
         System.out.println("Select an option:");
     }
 
@@ -88,7 +75,7 @@ public class ConsoleMenu {
         System.out.println("MAIN MENU");
         System.out.println("---------");
         System.out.println("0. Exit");
-        System.out.println("1. Singles");
+        System.out.println("1. Start");
         System.out.println("Make your choice:");
     }
 
