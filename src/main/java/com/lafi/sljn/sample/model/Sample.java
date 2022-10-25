@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Sample {
 
-    private String codex;
+    private String datex;
 
     private Integer number1;
 
@@ -18,33 +18,30 @@ public class Sample {
 
     private Integer number6;
 
-    private Integer index;
-
     // constructors
 
     public Sample() {
         // empty constructor by default
     }
 
-    public Sample(String codex, Integer number1, Integer number2, Integer number3, Integer number4, Integer number5, Integer number6, Integer index) {
-        this.codex = codex;
+    public Sample(String datex, Integer number1, Integer number2, Integer number3, Integer number4, Integer number5, Integer number6) {
+        this.datex = datex;
         this.number1 = number1;
         this.number2 = number2;
         this.number3 = number3;
         this.number4 = number4;
         this.number5 = number5;
         this.number6 = number6;
-        this.index = index;
     }
 
     // getters & setters
 
-    public String getCodex() {
-        return codex;
+    public String getDatex() {
+        return datex;
     }
 
-    public void setCodex(String codex) {
-        this.codex = codex;
+    public void setDatex(String datex) {
+        this.datex = datex;
     }
 
     public Integer getNumber1() {
@@ -95,14 +92,6 @@ public class Sample {
         this.number6 = number6;
     }
 
-    public Integer getIndex() {
-        return index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
     // special methods
 
     @Override
@@ -120,14 +109,13 @@ public class Sample {
 
     @Override
     public String toString() {
-        return "Sample{" + codex +
-                ", " + number1 +
-                ", " + number2 +
-                ", " + number3 +
-                ", " + number4 +
-                ", " + number5 +
-                ", " + number6 +
-                ", " + index +
-                '}';
+        return "(" + datex +
+                ") => [" + number1 +
+                "," + number2 +
+                "," + number3 +
+                "," + number4 +
+                "," + number5 +
+                "," + number6 +
+                "]";
     }
 }

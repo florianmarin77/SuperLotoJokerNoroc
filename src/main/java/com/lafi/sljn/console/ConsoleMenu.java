@@ -1,5 +1,8 @@
 package com.lafi.sljn.console;
 
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class ConsoleMenu {
@@ -29,18 +32,38 @@ public class ConsoleMenu {
                             break;
                             case 1: {
                                 System.out.println("SUPER 5/40");
+                                try {
+                                    Path path = Paths.get(ClassLoader.getSystemResource("super.txt").toURI());
+                                } catch (URISyntaxException exception) {
+                                    exception.printStackTrace();
+                                }
                             }
                             break;
                             case 2: {
                                 System.out.println("LOTO 6/49");
+                                try {
+                                    Path path = Paths.get(ClassLoader.getSystemResource("loto.txt").toURI());
+                                } catch (URISyntaxException exception) {
+                                    exception.printStackTrace();
+                                }
                             }
                             break;
                             case 3: {
                                 System.out.println("JOKER 5/45 + 1/20");
+                                try {
+                                    Path path = Paths.get(ClassLoader.getSystemResource("joker").toURI());
+                                } catch (URISyntaxException exception) {
+                                    exception.printStackTrace();
+                                }
                             }
                             break;
                             case 4: {
                                 System.out.println("NOROC");
+                                try {
+                                    Path path = Paths.get(ClassLoader.getSystemResource("noroc").toURI());
+                                } catch (URISyntaxException exception) {
+                                    exception.printStackTrace();
+                                }
                             }
                             break;
                             default: {
