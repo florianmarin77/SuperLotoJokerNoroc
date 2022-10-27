@@ -6,17 +6,17 @@ public class Sample {
 
     private String datex;
 
-    private Integer number1;
+    private String number1;
 
-    private Integer number2;
+    private String number2;
 
-    private Integer number3;
+    private String number3;
 
-    private Integer number4;
+    private String number4;
 
-    private Integer number5;
+    private String number5;
 
-    private Integer number6;
+    private String number6;
 
     // constructors
 
@@ -24,7 +24,8 @@ public class Sample {
         // empty constructor by default
     }
 
-    public Sample(String datex, Integer number1, Integer number2, Integer number3, Integer number4, Integer number5, Integer number6) {
+
+    public Sample(String datex, String number1, String number2, String number3, String number4, String number5, String number6) {
         this.datex = datex;
         this.number1 = number1;
         this.number2 = number2;
@@ -34,7 +35,7 @@ public class Sample {
         this.number6 = number6;
     }
 
-    // getters & setters
+// getters & setters
 
     public String getDatex() {
         return datex;
@@ -44,51 +45,51 @@ public class Sample {
         this.datex = datex;
     }
 
-    public Integer getNumber1() {
+    public String getNumber1() {
         return number1;
     }
 
-    public void setNumber1(Integer number1) {
+    public void setNumber1(String number1) {
         this.number1 = number1;
     }
 
-    public Integer getNumber2() {
+    public String getNumber2() {
         return number2;
     }
 
-    public void setNumber2(Integer number2) {
+    public void setNumber2(String number2) {
         this.number2 = number2;
     }
 
-    public Integer getNumber3() {
+    public String getNumber3() {
         return number3;
     }
 
-    public void setNumber3(Integer number3) {
+    public void setNumber3(String number3) {
         this.number3 = number3;
     }
 
-    public Integer getNumber4() {
+    public String getNumber4() {
         return number4;
     }
 
-    public void setNumber4(Integer number4) {
+    public void setNumber4(String number4) {
         this.number4 = number4;
     }
 
-    public Integer getNumber5() {
+    public String getNumber5() {
         return number5;
     }
 
-    public void setNumber5(Integer number5) {
+    public void setNumber5(String number5) {
         this.number5 = number5;
     }
 
-    public Integer getNumber6() {
+    public String getNumber6() {
         return number6;
     }
 
-    public void setNumber6(Integer number6) {
+    public void setNumber6(String number6) {
         this.number6 = number6;
     }
 

@@ -1,8 +1,12 @@
 package com.lafi.sljn.console;
 
+import com.lafi.sljn.sample.loader.SampleLoader;
+import com.lafi.sljn.sample.model.Sample;
+
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleMenu {
@@ -34,6 +38,9 @@ public class ConsoleMenu {
                                 System.out.println("SUPER 5/40");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("super.txt").toURI());
+                                    SampleLoader loader = new SampleLoader();
+                                    List<Sample> list = loader.loadData(Paths.get(String.valueOf(path)));
+                                    System.out.println(list.toString());
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
@@ -43,6 +50,9 @@ public class ConsoleMenu {
                                 System.out.println("LOTO 6/49");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("loto.txt").toURI());
+                                    SampleLoader loader = new SampleLoader();
+                                    List<Sample> list = loader.loadData(Paths.get(String.valueOf(path)));
+                                    System.out.println(list.toString());
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
@@ -52,6 +62,9 @@ public class ConsoleMenu {
                                 System.out.println("JOKER 5/45 + 1/20");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("joker").toURI());
+                                    SampleLoader loader = new SampleLoader();
+                                    List<Sample> list = loader.loadData(Paths.get(String.valueOf(path)));
+                                    System.out.println(list.toString());
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
@@ -61,6 +74,9 @@ public class ConsoleMenu {
                                 System.out.println("NOROC");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("noroc").toURI());
+                                    SampleLoader loader = new SampleLoader();
+                                    List<Sample> list = loader.loadData(Paths.get(String.valueOf(path)));
+                                    System.out.println(list.toString());
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
