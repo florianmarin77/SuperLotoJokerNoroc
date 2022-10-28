@@ -61,19 +61,7 @@ public class ConsoleMenu {
                             case 3: {
                                 System.out.println("JOKER 5/45 + 1/20");
                                 try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource("joker").toURI());
-                                    SampleLoader loader = new SampleLoader();
-                                    List<Sample> list = loader.loadData(Paths.get(String.valueOf(path)));
-                                    System.out.println(list.toString());
-                                } catch (URISyntaxException exception) {
-                                    exception.printStackTrace();
-                                }
-                            }
-                            break;
-                            case 4: {
-                                System.out.println("NOROC");
-                                try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource("noroc").toURI());
+                                    Path path = Paths.get(ClassLoader.getSystemResource("joker.txt").toURI());
                                     SampleLoader loader = new SampleLoader();
                                     List<Sample> list = loader.loadData(Paths.get(String.valueOf(path)));
                                     System.out.println(list.toString());
@@ -106,7 +94,6 @@ public class ConsoleMenu {
         System.out.println("1. Super 5/40");
         System.out.println("2. Loto 6/49");
         System.out.println("3. Joker 5/45+1/20");
-        System.out.println("4. Noroc");
         System.out.println("Select an option:");
     }
 
