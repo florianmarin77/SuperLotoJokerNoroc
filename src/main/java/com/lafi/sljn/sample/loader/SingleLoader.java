@@ -1,7 +1,7 @@
 package com.lafi.sljn.sample.loader;
 
 
-import com.lafi.sljn.sample.model.Sample;
+import com.lafi.sljn.sample.model.Single;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class SampleLoader {
+public class SingleLoader {
 
-    public List<Sample> loadData(Path path) {
+    public List<Single> loadData(Path path) {
         List<String> data = new ArrayList<>();
         try {
             data = Files.readAllLines(path);
@@ -21,11 +21,10 @@ public class SampleLoader {
             exception.printStackTrace();
         }
 
-        List<Sample> result = new ArrayList<>();
+        List<Single> result = new ArrayList<>();
         for (String item : data) {
-            List<String> itemData = Pattern.compile(",")
-                    .splitAsStream(item).collect(Collectors.toList());
-            result.add(new Sample(itemData.get(0), itemData.get(1), itemData.get(2), itemData.get(3), itemData.get(4), itemData.get(5), itemData.get(6)));
+            List<String> itemData = Pattern.compile(",").splitAsStream(item).collect(Collectors.toList());
+            result.add(new Single(itemData.get(0), itemData.get(1), itemData.get(2), itemData.get(3), itemData.get(4), itemData.get(5), itemData.get(6)));
         }
 
         return result;
