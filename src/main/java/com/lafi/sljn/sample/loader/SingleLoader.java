@@ -24,7 +24,18 @@ public class SingleLoader {
         List<Single> result = new ArrayList<>();
         for (String item : data) {
             List<String> itemData = Pattern.compile(",").splitAsStream(item).collect(Collectors.toList());
-            result.add(new Single(itemData.get(0), itemData.get(1), itemData.get(2), itemData.get(3), itemData.get(4), itemData.get(5), itemData.get(6)));
+
+            Single single = new Single();
+
+            single.setDatex(itemData.get(0));
+            single.setIntex1(itemData.get(1));
+            single.setIntex2(itemData.get(2));
+            single.setIntex3(itemData.get(3));
+            single.setIntex4(itemData.get(4));
+            single.setIntex5(itemData.get(5));
+            single.setIntex6(itemData.get(6));
+
+            result.add(single);
         }
 
         return result;
