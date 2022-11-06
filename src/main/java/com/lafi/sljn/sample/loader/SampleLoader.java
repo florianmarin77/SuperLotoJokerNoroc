@@ -1,6 +1,6 @@
 package com.lafi.sljn.sample.loader;
 
-import com.lafi.sljn.sample.model.Single;
+import com.lafi.sljn.sample.model.Sample;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class SingleLoader implements Loader<Single> {
+public class SampleLoader implements Loader<Sample> {
 
     @Override
-    public List<Single> loadData(Path path) {
+    public List<Sample> loadData(Path path) {
         List<String> data = new ArrayList<>();
 
         try {
@@ -24,34 +24,35 @@ public class SingleLoader implements Loader<Single> {
             exception.printStackTrace();
         }
 
-        List<Single> result = new ArrayList<>();
-        int k = 0;
+        List<Sample> result = new ArrayList<>();
+        Integer k = 0;
 
         for (String item : data) {
             List<String> itemData = Pattern.compile(",").splitAsStream(item).collect(Collectors.toList());
 
-            Single single = new Single();
+            Sample sample = new Sample();
             k++;
 
             // DATEX ready
-            single.setDatex(itemData.get(0));
+            sample.setDatex(itemData.get(0));
 
             // INTEX ready
-            single.setIntex1(itemData.get(1));
-            single.setIntex2(itemData.get(2));
-            single.setIntex3(itemData.get(3));
-            single.setIntex4(itemData.get(4));
-            single.setIntex5(itemData.get(5));
-            single.setIntex6(itemData.get(6));
+            sample.setIntex1(Integer.valueOf(itemData.get(1)));
+            sample.setIntex2(Integer.valueOf(itemData.get(2)));
+            sample.setIntex3(Integer.valueOf(itemData.get(3)));
+            sample.setIntex4(Integer.valueOf(itemData.get(4)));
+            sample.setIntex5(Integer.valueOf(itemData.get(5)));
+            sample.setIntex6(Integer.valueOf(itemData.get(6)));
 
             // preparing CODEX
             Integer[] intex = new Integer[6];
-            intex[0] = Integer.valueOf(single.getIntex1());
-            intex[1] = Integer.valueOf(single.getIntex2());
-            intex[2] = Integer.valueOf(single.getIntex3());
-            intex[3] = Integer.valueOf(single.getIntex4());
-            intex[4] = Integer.valueOf(single.getIntex5());
-            intex[5] = Integer.valueOf(single.getIntex6());
+
+            intex[0] = sample.getIntex1();
+            intex[1] = sample.getIntex2();
+            intex[2] = sample.getIntex3();
+            intex[3] = sample.getIntex4();
+            intex[4] = sample.getIntex5();
+            intex[5] = sample.getIntex6();
 
             Integer[] codex = {0, 0, 0, 0, 0};
             Integer[] decada = new Integer[6];
@@ -71,13 +72,12 @@ public class SingleLoader implements Loader<Single> {
             }
 
             // CODEX ready
-            single.setCodex(string.toString());
+            sample.setCodex(string.toString());
 
             // INDEX ready
-            single.setIndex(Integer.toString(k));
+            sample.setIndex(k);
 
-            System.out.println(single);
-            result.add(single);
+            result.add(sample);
         }
 
         return result;

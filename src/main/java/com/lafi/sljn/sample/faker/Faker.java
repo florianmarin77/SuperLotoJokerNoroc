@@ -1,4 +1,5 @@
 package com.lafi.sljn.sample.faker;
 
-public class SampleFaker {
+public class Faker {
+    // todo
 }

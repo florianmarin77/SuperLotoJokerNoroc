@@ -15,13 +15,19 @@ public class Single {
     private String intex5;
     private String intex6;
 
+    // CODEX este codificarea extragerii
+    private String codex;
+
+    // INDEX este indicativul extragerii
+    private String index;
+
     /* ==================================================> constructors */
 
     public Single() {
         // empty constructor by default
     }
 
-    public Single(String datex, String intex1, String intex2, String intex3, String intex4, String intex5, String intex6) {
+    public Single(String datex, String intex1, String intex2, String intex3, String intex4, String intex5, String intex6, String codex, String index) {
         this.datex = datex;
         this.intex1 = intex1;
         this.intex2 = intex2;
@@ -29,6 +35,8 @@ public class Single {
         this.intex4 = intex4;
         this.intex5 = intex5;
         this.intex6 = intex6;
+        this.codex = codex;
+        this.index = index;
     }
 
     /* ==================================================> getters & setters */
@@ -89,6 +97,22 @@ public class Single {
         this.intex6 = intex6;
     }
 
+    public String getCodex() {
+        return codex;
+    }
+
+    public void setCodex(String codex) {
+        this.codex = codex;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
     /* ==================================================> special methods */
 
     @Override
@@ -106,13 +130,6 @@ public class Single {
 
     @Override
     public String toString() {
-        return "(" + datex +
-                ")=[" + intex1 +
-                "," + intex2 +
-                "," + intex3 +
-                "," + intex4 +
-                "," + intex5 +
-                "," + intex6 +
-                "]";
+        return "(" + datex + ")=[" + intex1 + "," + intex2 + "," + intex3 + "," + intex4 + "," + intex5 + "," + intex6 + "]={" + codex + "}=#" + index;
     }
 }

@@ -130,14 +130,6 @@ public class Sample {
 
     @Override
     public String toString() {
-        return "(" + datex +
-                ")=[" + intex1 +
-                "," + intex2 +
-                "," + intex3 +
-                "," + intex4 +
-                "," + intex5 +
-                "," + intex6 +
-                "]={" + codex +
-                "}#" + index;
+        return "(" + datex + ")=[" + intex1 + "," + intex2 + "," + intex3 + "," + intex4 + "," + intex5 + "," + intex6 + "]={" + codex + "}#" + index;
     }
 }

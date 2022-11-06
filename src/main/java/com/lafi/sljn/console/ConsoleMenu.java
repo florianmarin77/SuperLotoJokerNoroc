@@ -1,12 +1,10 @@
 package com.lafi.sljn.console;
 
 import com.lafi.sljn.sample.loader.SingleLoader;
-import com.lafi.sljn.sample.model.Single;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleMenu {
@@ -35,33 +33,36 @@ public class ConsoleMenu {
                             }
                             break;
                             case 1: {
-                                System.out.println("Extragerile SUPER 5/40");
+                                System.out.println("Extragerile SUPER 5/40 sunt urmatoarele:");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("super.txt").toURI());
                                     displaySingles(path);
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
+                                System.out.println("Extragerile SUPER sunt afisate complet!");
                             }
                             break;
                             case 2: {
-                                System.out.println("Extragerile LOTO 6/49");
+                                System.out.println("Extragerile LOTO 6/49 sunt urmatoarele:");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("loto.txt").toURI());
                                     displaySingles(path);
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
+                                System.out.println("Extragerile LOTO sunt afisate complet!");
                             }
                             break;
                             case 3: {
-                                System.out.println("Extragerile JOKER 5/45 + 1/20");
+                                System.out.println("Extragerile JOKER 5/45+1/20 sunt urmatoarele:");
                                 try {
                                     Path path = Paths.get(ClassLoader.getSystemResource("joker.txt").toURI());
                                     displaySingles(path);
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
+                                System.out.println("Extragerile JOKER sunt afisate complet!");
                             }
                             break;
                             default: {
@@ -101,7 +102,6 @@ public class ConsoleMenu {
 
     private static void displaySingles(Path path) {
         SingleLoader loader = new SingleLoader();
-        List<Single> list = loader.loadData(Paths.get(String.valueOf(path)));
-        System.out.println(list.toString());
+        loader.loadData(Paths.get(String.valueOf(path)));
     }
 }
