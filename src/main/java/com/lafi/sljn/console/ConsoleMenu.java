@@ -5,10 +5,12 @@ import com.lafi.sljn.sample.loader.SingleLoader;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConsoleMenu {
+import static com.lafi.sljn.sample.messages.CommonMessages.*;
 
+public class ConsoleMenu {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -16,7 +18,18 @@ public class ConsoleMenu {
         boolean exitMainMenu = false;
         do {
             displayMainMenu();
-            int selectedChoice = SCANNER.nextInt();
+
+            int selectedChoice;
+            while (true) {
+                try {
+                    selectedChoice = SCANNER.nextInt();
+                    break;
+                } catch (InputMismatchException exception) {
+                    System.out.println(INVALID_NUMBER);
+                }
+                SCANNER.nextLine();
+            }
+
             switch (selectedChoice) {
                 case 0: {
                     exitMainMenu = true;
@@ -26,47 +39,58 @@ public class ConsoleMenu {
                     boolean exitStartMenu = false;
                     do {
                         displayStartMenu();
-                        int selectedOperation = SCANNER.nextInt();
-                        switch (selectedOperation) {
+
+                        int selectedSystem;
+                        while (true) {
+                            try {
+                                selectedSystem = SCANNER.nextInt();
+                                break;
+                            } catch (InputMismatchException exception) {
+                                System.out.println(INVALID_NUMBER);
+                            }
+                            SCANNER.nextLine();
+                        }
+
+                        switch (selectedSystem) {
                             case 0: {
                                 exitStartMenu = true;
                             }
                             break;
                             case 1: {
-                                System.out.println("Extragerile SUPER 5/40 sunt urmatoarele:");
+                                System.out.println(SUPER_LOADING);
                                 try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource("super.txt").toURI());
+                                    Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
                                     displaySingles(path);
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
-                                System.out.println("Extragerile SUPER sunt afisate complet!");
+                                System.out.println(SUPER_PRINTING);
                             }
                             break;
                             case 2: {
-                                System.out.println("Extragerile LOTO 6/49 sunt urmatoarele:");
+                                System.out.println(LOTO_LOADING);
                                 try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource("loto.txt").toURI());
+                                    Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
                                     displaySingles(path);
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
-                                System.out.println("Extragerile LOTO sunt afisate complet!");
+                                System.out.println(LOTO_PRINTING);
                             }
                             break;
                             case 3: {
-                                System.out.println("Extragerile JOKER 5/45+1/20 sunt urmatoarele:");
+                                System.out.println(JOKER_LOADING);
                                 try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource("joker.txt").toURI());
+                                    Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
                                     displaySingles(path);
                                 } catch (URISyntaxException exception) {
                                     exception.printStackTrace();
                                 }
-                                System.out.println("Extragerile JOKER sunt afisate complet!");
+                                System.out.println(JOKER_PRINTING);
                             }
                             break;
                             default: {
-                                System.out.println("Please enter a valid operation!");
+                                System.out.println(INVALID_SYSTEM);
                             }
                             break;
                         }
@@ -74,7 +98,7 @@ public class ConsoleMenu {
                 }
                 break;
                 default: {
-                    System.out.println("Please make a valid choice!");
+                    System.out.println(INVALID_CHOICE);
                 }
                 break;
             }
