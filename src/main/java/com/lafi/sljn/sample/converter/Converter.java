@@ -10,7 +10,9 @@ public class Converter {
     public List<Sample> toSamples(List<Single> singles) {
         List<Sample> samples = new ArrayList<>();
 
-        // todo
+        for (Single item : singles) {
+            samples.add(toSample(item));
+        }
 
         return samples;
     }
@@ -18,7 +20,9 @@ public class Converter {
     public List<Single> toSingles(List<Sample> samples) {
         List<Single> singles = new ArrayList<>();
 
-        // todo
+        for (Sample item : samples) {
+            singles.add(toSingle(item));
+        }
 
         return singles;
     }
