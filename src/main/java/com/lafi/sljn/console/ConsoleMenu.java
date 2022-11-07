@@ -1,11 +1,15 @@
 package com.lafi.sljn.console;
 
+import com.lafi.sljn.sample.loaders.SampleLoader;
 import com.lafi.sljn.sample.loaders.SingleLoader;
+import com.lafi.sljn.sample.models.Sample;
+import com.lafi.sljn.sample.models.Single;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import static com.lafi.sljn.sample.messages.CommonMessages.*;
@@ -126,6 +130,11 @@ public class ConsoleMenu {
 
     private static void displaySingles(Path path) {
         SingleLoader loader = new SingleLoader();
-        loader.loadData(Paths.get(String.valueOf(path)));
+        List<Single> singles = loader.loadData(Paths.get(String.valueOf(path)));
+    }
+
+    private static void displaySamples(Path path) {
+        SampleLoader loader = new SampleLoader();
+        List<Sample> samples = loader.loadData(Paths.get(String.valueOf(path)));
     }
 }
