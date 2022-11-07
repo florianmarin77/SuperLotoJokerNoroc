@@ -1,4 +1,4 @@
-package com.lafi.sljn.sample.loader;
+package com.lafi.sljn.sample.loaders;
 
 import java.nio.file.Path;
 import java.util.List;

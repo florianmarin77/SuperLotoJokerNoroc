@@ -1,7 +1,7 @@
 package com.lafi.sljn.sample.converter;
 
-import com.lafi.sljn.sample.model.Sample;
-import com.lafi.sljn.sample.model.Single;
+import com.lafi.sljn.sample.models.Sample;
+import com.lafi.sljn.sample.models.Single;
 
 import java.util.ArrayList;
 import java.util.List;

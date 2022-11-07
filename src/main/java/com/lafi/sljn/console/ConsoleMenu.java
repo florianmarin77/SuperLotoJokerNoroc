@@ -1,6 +1,6 @@
 package com.lafi.sljn.console;
 
-import com.lafi.sljn.sample.loader.SingleLoader;
+import com.lafi.sljn.sample.loaders.SingleLoader;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;

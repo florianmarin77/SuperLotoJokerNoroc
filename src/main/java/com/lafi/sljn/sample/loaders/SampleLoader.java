@@ -1,6 +1,6 @@
-package com.lafi.sljn.sample.loader;
+package com.lafi.sljn.sample.loaders;
 
-import com.lafi.sljn.sample.model.Sample;
+import com.lafi.sljn.sample.models.Sample;
 
 import java.io.IOException;
 import java.nio.file.Files;
