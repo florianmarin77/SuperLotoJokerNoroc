@@ -4,5 +4,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 public interface Loader<T> {
-    List<T> loadData(Path path);
+    default List<T> loadData(Path path) {
+        return null;
+    }
 }
