@@ -37,8 +37,6 @@ public class Converter {
         single.setIntex4(sample.getIntex4().toString());
         single.setIntex5(sample.getIntex5().toString());
         single.setIntex6(sample.getIntex6().toString());
-        single.setCodex(sample.getCodex());
-        single.setIndex(sample.getIndex().toString());
 
         return single;
     }
@@ -53,8 +51,6 @@ public class Converter {
         sample.setIntex4(Integer.valueOf(single.getIntex4()));
         sample.setIntex5(Integer.valueOf(single.getIntex5()));
         sample.setIntex6(Integer.valueOf(single.getIntex6()));
-        sample.setCodex(single.getCodex());
-        sample.setIndex(Integer.valueOf(single.getIndex()));
 
         return sample;
     }

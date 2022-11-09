@@ -130,11 +130,21 @@ public class ConsoleMenu {
 
     private static void displaySingles(Path path) {
         SingleLoader loader = new SingleLoader();
+
         List<Single> singles = loader.loadData(Paths.get(String.valueOf(path)));
+
+        for (Single item : singles) {
+            System.out.println(item);
+        }
     }
 
     private static void displaySamples(Path path) {
         SampleLoader loader = new SampleLoader();
+
         List<Sample> samples = loader.loadData(Paths.get(String.valueOf(path)));
+
+        for (Sample item : samples) {
+            System.out.println(item);
+        }
     }
 }

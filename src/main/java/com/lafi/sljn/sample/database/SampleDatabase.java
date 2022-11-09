@@ -1,5 +1,5 @@
 package com.lafi.sljn.sample.database;
 
-public class Database {
+public class SampleDatabase {
     // todo
 }
