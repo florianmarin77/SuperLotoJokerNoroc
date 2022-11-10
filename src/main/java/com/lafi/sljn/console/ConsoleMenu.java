@@ -23,16 +23,7 @@ public class ConsoleMenu {
         do {
             displayMainMenu();
 
-            int selectedChoice;
-            while (true) {
-                try {
-                    selectedChoice = SCANNER.nextInt();
-                    break;
-                } catch (InputMismatchException exception) {
-                    System.out.println(INVALID_NUMBER);
-                }
-                SCANNER.nextLine();
-            }
+            int selectedChoice = selectValidChoice();
 
             switch (selectedChoice) {
                 case 0: {
@@ -44,16 +35,7 @@ public class ConsoleMenu {
                     do {
                         displayStartMenu();
 
-                        int selectedSystem;
-                        while (true) {
-                            try {
-                                selectedSystem = SCANNER.nextInt();
-                                break;
-                            } catch (InputMismatchException exception) {
-                                System.out.println(INVALID_NUMBER);
-                            }
-                            SCANNER.nextLine();
-                        }
+                        int selectedSystem = selectValidSystem();
 
                         switch (selectedSystem) {
                             case 0: {
@@ -146,5 +128,39 @@ public class ConsoleMenu {
         for (Sample item : samples) {
             System.out.println(item);
         }
+    }
+
+    private static int selectValidChoice() {
+        int selectedChoice;
+
+        while (true) {
+            try {
+                selectedChoice = SCANNER.nextInt();
+                break;
+            } catch (InputMismatchException exception) {
+                System.out.println(INVALID_NUMBER);
+            }
+            SCANNER.nextLine();
+        }
+
+        SCANNER.close();
+        return selectedChoice;
+    }
+
+    private static int selectValidSystem() {
+        int selectedSystem;
+
+        while (true) {
+            try {
+                selectedSystem = SCANNER.nextInt();
+                break;
+            } catch (InputMismatchException exception) {
+                System.out.println(INVALID_NUMBER);
+            }
+            SCANNER.nextLine();
+        }
+
+        SCANNER.close();
+        return selectedSystem;
     }
 }
