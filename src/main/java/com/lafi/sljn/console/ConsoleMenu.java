@@ -1,21 +1,12 @@
 package com.lafi.sljn.console;
 
-import com.lafi.sljn.sample.loaders.SampleLoader;
-import com.lafi.sljn.sample.loaders.SingleLoader;
-import com.lafi.sljn.sample.models.Sample;
-import com.lafi.sljn.sample.models.Single;
-
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 import static com.lafi.sljn.sample.messages.CommonMessages.*;
 
 public class ConsoleMenu {
-    private static final Scanner SCANNER = new Scanner(System.in);
+    static final Scanner SCANNER = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -23,7 +14,7 @@ public class ConsoleMenu {
         do {
             displayMainMenu();
 
-            int selectedChoice = selectValidChoice();
+            int selectedChoice = selectValidOption();
 
             switch (selectedChoice) {
                 case 0: {
@@ -35,7 +26,7 @@ public class ConsoleMenu {
                     do {
                         displayStartMenu();
 
-                        int selectedSystem = selectValidSystem();
+                        int selectedSystem = selectValidOption();
 
                         switch (selectedSystem) {
                             case 0: {
@@ -43,36 +34,15 @@ public class ConsoleMenu {
                             }
                             break;
                             case 1: {
-                                System.out.println(SUPER_LOADING);
-                                try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
-                                    displaySingles(path);
-                                } catch (URISyntaxException exception) {
-                                    exception.printStackTrace();
-                                }
-                                System.out.println(SUPER_PRINTING);
+                                ConsoleSuperMenu.main();
                             }
                             break;
                             case 2: {
-                                System.out.println(LOTO_LOADING);
-                                try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
-                                    displaySingles(path);
-                                } catch (URISyntaxException exception) {
-                                    exception.printStackTrace();
-                                }
-                                System.out.println(LOTO_PRINTING);
+                                ConsoleLotoMenu.main();
                             }
                             break;
                             case 3: {
-                                System.out.println(JOKER_LOADING);
-                                try {
-                                    Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
-                                    displaySingles(path);
-                                } catch (URISyntaxException exception) {
-                                    exception.printStackTrace();
-                                }
-                                System.out.println(JOKER_PRINTING);
+                                ConsoleJokerMenu.main();
                             }
                             break;
                             default: {
@@ -110,32 +80,12 @@ public class ConsoleMenu {
         System.out.println("Make your choice:");
     }
 
-    private static void displaySingles(Path path) {
-        SingleLoader loader = new SingleLoader();
-
-        List<Single> singles = loader.loadData(Paths.get(String.valueOf(path)));
-
-        for (Single item : singles) {
-            System.out.println(item);
-        }
-    }
-
-    private static void displaySamples(Path path) {
-        SampleLoader loader = new SampleLoader();
-
-        List<Sample> samples = loader.loadData(Paths.get(String.valueOf(path)));
-
-        for (Sample item : samples) {
-            System.out.println(item);
-        }
-    }
-
-    private static int selectValidChoice() {
-        int selectedChoice;
+    static int selectValidOption() {
+        int selectedOption;
 
         while (true) {
             try {
-                selectedChoice = SCANNER.nextInt();
+                selectedOption = SCANNER.nextInt();
                 break;
             } catch (InputMismatchException exception) {
                 System.out.println(INVALID_NUMBER);
@@ -143,24 +93,6 @@ public class ConsoleMenu {
             SCANNER.nextLine();
         }
 
-        SCANNER.close();
-        return selectedChoice;
-    }
-
-    private static int selectValidSystem() {
-        int selectedSystem;
-
-        while (true) {
-            try {
-                selectedSystem = SCANNER.nextInt();
-                break;
-            } catch (InputMismatchException exception) {
-                System.out.println(INVALID_NUMBER);
-            }
-            SCANNER.nextLine();
-        }
-
-        SCANNER.close();
-        return selectedSystem;
+        return selectedOption;
     }
 }
