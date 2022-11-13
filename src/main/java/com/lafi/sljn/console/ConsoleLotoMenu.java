@@ -39,7 +39,7 @@ public class ConsoleLotoMenu {
                 }
                 break;
                 default: {
-                    System.out.println(INVALID_SYSTEM);
+                    System.out.println(INVALID_OPTION);
                 }
                 break;
             }

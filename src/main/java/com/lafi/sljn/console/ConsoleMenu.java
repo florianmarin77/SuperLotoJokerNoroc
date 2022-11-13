@@ -3,7 +3,8 @@ package com.lafi.sljn.console;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static com.lafi.sljn.sample.messages.CommonMessages.*;
+import static com.lafi.sljn.sample.messages.CommonMessages.INVALID_NUMBER;
+import static com.lafi.sljn.sample.messages.CommonMessages.INVALID_OPTION;
 
 public class ConsoleMenu {
     static final Scanner SCANNER = new Scanner(System.in);
@@ -46,7 +47,7 @@ public class ConsoleMenu {
                             }
                             break;
                             default: {
-                                System.out.println(INVALID_SYSTEM);
+                                System.out.println(INVALID_OPTION);
                             }
                             break;
                         }
@@ -54,7 +55,7 @@ public class ConsoleMenu {
                 }
                 break;
                 default: {
-                    System.out.println(INVALID_CHOICE);
+                    System.out.println(INVALID_OPTION);
                 }
                 break;
             }

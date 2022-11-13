@@ -19,8 +19,7 @@ public class CommonMessages {
     public static final String JOKER_PATH = "joker.txt";
 
     // MAIN MENU ERRORS
-    public static final String INVALID_CHOICE = "ERROR: please make a valid choice!";
-    public static final String INVALID_SYSTEM = "ERROR: please select a valid system!";
+    public static final String INVALID_OPTION = "ERROR: please select a valid option!";
     public static final String INVALID_NUMBER = "CRITICAL ERROR: you must enter an integer number!";
 
     private CommonMessages() {
