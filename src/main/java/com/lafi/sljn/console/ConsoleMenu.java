@@ -73,11 +73,13 @@ public class ConsoleMenu {
     }
 
     private static void displayMainMenu() {
-        System.out.println("MAIN MENU");
-        System.out.println("---------");
-        System.out.println("0. Exit");
-        System.out.println("1. Start");
-        System.out.println("Make your choice:");
+        System.out.println("+-----------+");
+        System.out.println("| MAIN MENU |");
+        System.out.println("|-----------|");
+        System.out.println("| 0. Exit   |");
+        System.out.println("| 1. Start  |");
+        System.out.println("+-----------+");
+        System.out.println("Please make your choice:");
     }
 
     static int selectValidOption() {
