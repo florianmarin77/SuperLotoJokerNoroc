@@ -1,4 +1,4 @@
-package com.lafi.sljn.sample.models;
+package com.lafi.sljn.components.models;
 
 import java.util.Objects;
 

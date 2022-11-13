@@ -1,35 +1,35 @@
-package com.lafi.sljn.console;
+package com.lafi.sljn.consoles;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.lafi.sljn.sample.messages.CommonMessages.*;
+import static com.lafi.sljn.components.messages.CommonMessages.*;
 
-public class ConsoleSuperMenu {
+public class ConsoleLotoMenu {
     static void main() {
 
-        boolean exitSuperMenu = false;
+        boolean exitLotoMenu = false;
         do {
-            displaySuperMenu();
+            displayLotoMenu();
 
             int selectedOption = ConsoleMenu.selectValidOption();
 
             switch (selectedOption) {
                 case 0: {
-                    exitSuperMenu = true;
+                    exitLotoMenu = true;
                 }
                 break;
                 case 1: {
-                    ConsoleSuperMenu.readSuperResource();
+                    ConsoleLotoMenu.readLotoResource();
                 }
                 break;
                 case 2: {
-                    System.out.println("SUPER => option 2");
+                    System.out.println("LOTO => option 2");
                 }
                 break;
                 case 3: {
-                    System.out.println("SUPER => option 3");
+                    System.out.println("LOTO => option 3");
                 }
                 break;
                 default: {
@@ -37,29 +37,27 @@ public class ConsoleSuperMenu {
                 }
                 break;
             }
-        } while (!exitSuperMenu);
-
-
+        } while (!exitLotoMenu);
     }
 
-    private static void readSuperResource() {
-        System.out.println(SUPER_LOADING);
+    private static void readLotoResource() {
+        System.out.println(LOTO_LOADING);
 
         try {
-            Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
+            Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
             ConsoleMenu.displaySingles(path);
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
-        System.out.println(SUPER_PRINTING);
+        System.out.println(LOTO_PRINTING);
     }
 
-    private static void displaySuperMenu() {
+    private static void displayLotoMenu() {
         System.out.println("+-------------------+");
-        System.out.println("| SUPER MENU        |");
+        System.out.println("| LOTO MENU         |");
         System.out.println("|-------------------|");
-        System.out.println("| 0. Exit Super     |");
+        System.out.println("| 0. Exit Loto      |");
         System.out.println("| 1. Load resource  |");
         System.out.println("| 2. no name option |");
         System.out.println("| 3. no name option |");

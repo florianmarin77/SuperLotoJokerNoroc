@@ -1,7 +1,7 @@
-package com.lafi.sljn.console;
+package com.lafi.sljn.consoles;
 
-import com.lafi.sljn.sample.loaders.SingleLoader;
-import com.lafi.sljn.sample.models.Single;
+import com.lafi.sljn.components.loaders.SingleLoader;
+import com.lafi.sljn.components.models.Single;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,7 +9,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.lafi.sljn.sample.messages.CommonMessages.*;
+import static com.lafi.sljn.components.messages.CommonMessages.*;
 
 public class ConsoleMenu {
     static final Scanner SCANNER = new Scanner(System.in);
