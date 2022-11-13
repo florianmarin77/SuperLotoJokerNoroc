@@ -1,12 +1,12 @@
 package com.lafi.sljn.sample.messages;
 
 public class CommonMessages {
+    public static final String SELECT_OPTION = "Please select your option:";
 
     // SUPER 5/40
     public static final String SUPER_LOADING = "Extragerile SUPER 5/40 sunt urmatoarele:";
     public static final String SUPER_PRINTING = "Extragerile SUPER sunt afisate complet!";
     public static final String SUPER_PATH = "super.txt";
-
 
     // LOTO 6/49
     public static final String LOTO_LOADING = "Extragerile LOTO 6/49 sunt urmatoarele:";

@@ -1,14 +1,8 @@
 package com.lafi.sljn.console;
 
-import com.lafi.sljn.sample.loaders.SampleLoader;
-import com.lafi.sljn.sample.loaders.SingleLoader;
-import com.lafi.sljn.sample.models.Sample;
-import com.lafi.sljn.sample.models.Single;
-
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 import static com.lafi.sljn.sample.messages.CommonMessages.*;
 
@@ -51,32 +45,12 @@ public class ConsoleLotoMenu {
 
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
-            displaySingles(path);
+            ConsoleMenu.displaySingles(path);
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
         System.out.println(LOTO_PRINTING);
-    }
-
-    private static void displaySingles(Path path) {
-        SingleLoader loader = new SingleLoader();
-
-        List<Single> singles = loader.loadData(Paths.get(String.valueOf(path)));
-
-        for (Single item : singles) {
-            System.out.println(item);
-        }
-    }
-
-    private static void displaySamples(Path path) {
-        SampleLoader loader = new SampleLoader();
-
-        List<Sample> samples = loader.loadData(Paths.get(String.valueOf(path)));
-
-        for (Sample item : samples) {
-            System.out.println(item);
-        }
     }
 
     private static void displayLotoMenu() {
@@ -89,6 +63,6 @@ public class ConsoleLotoMenu {
         System.out.println("| 3. no name option |");
         System.out.println("+-------------------+");
 
-        System.out.println("What do you want to do?");
+        System.out.println(SELECT_OPTION);
     }
 }
