@@ -82,12 +82,15 @@ public class ConsoleSuperMenu {
     }
 
     private static void displaySuperMenu() {
-        System.out.println("SUPER MENU");
-        System.out.println("---------");
-        System.out.println("0. Exit Super");
-        System.out.println("1. Load resource");
-        System.out.println("2. no name option");
-        System.out.println("3. no name option");
-        System.out.println("Select an option:");
+        System.out.println("+-------------------+");
+        System.out.println("| SUPER MENU        |");
+        System.out.println("|-------------------|");
+        System.out.println("| 0. Exit Super     |");
+        System.out.println("| 1. Load resource  |");
+        System.out.println("| 2. no name option |");
+        System.out.println("| 3. no name option |");
+        System.out.println("+-------------------+");
+
+        System.out.println("What do you want to do?");
     }
 }
