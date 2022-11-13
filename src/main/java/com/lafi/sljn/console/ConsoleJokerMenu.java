@@ -80,12 +80,15 @@ public class ConsoleJokerMenu {
     }
 
     private static void displayJokerMenu() {
-        System.out.println("JOKER MENU");
-        System.out.println("---------");
-        System.out.println("0. Exit Joker");
-        System.out.println("1. Load resource");
-        System.out.println("2. no name option");
-        System.out.println("3. no name option");
-        System.out.println("Select an option:");
+        System.out.println("+-------------------+");
+        System.out.println("| JOKER MENU        |");
+        System.out.println("|-------------------|");
+        System.out.println("| 0. Exit Joker     |");
+        System.out.println("| 1. Load resource  |");
+        System.out.println("| 2. no name option |");
+        System.out.println("| 3. no name option |");
+        System.out.println("+-------------------+");
+
+        System.out.println("What do you want to do?");
     }
 }
