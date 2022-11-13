@@ -71,7 +71,7 @@ public class ConsoleMenu {
         System.out.println("| 2. Loto 6/49  |");
         System.out.println("| 3. Joker 5/45 |");
         System.out.println("+---------------+");
-        System.out.println("Please select an option:");
+        System.out.println("Please select your option:");
     }
 
     private static void displayMainMenu() {
