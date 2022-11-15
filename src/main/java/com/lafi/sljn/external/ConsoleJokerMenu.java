@@ -1,10 +1,10 @@
-package com.lafi.sljn.consoles;
+package com.lafi.sljn.external;
 
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.lafi.sljn.components.messages.CommonMessages.*;
+import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class ConsoleJokerMenu {
     static void main() {

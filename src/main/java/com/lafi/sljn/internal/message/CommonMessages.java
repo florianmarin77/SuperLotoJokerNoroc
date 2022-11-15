@@ -1,4 +1,4 @@
-package com.lafi.sljn.components.messages;
+package com.lafi.sljn.internal.message;
 
 public class CommonMessages {
     public static final String SELECT_OPTION = "Please select your option:";
