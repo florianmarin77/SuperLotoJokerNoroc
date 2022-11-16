@@ -61,7 +61,7 @@ public class ConsoleSuperMenu {
         System.out.println("|-------------------|");
         System.out.println("| 0. Exit Super     |");
         System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. no name option |");
+        System.out.println("| 2. Load database  |");
         System.out.println("| 3. no name option |");
         System.out.println("+-------------------+");
 
