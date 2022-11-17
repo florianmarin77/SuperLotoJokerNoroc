@@ -25,7 +25,8 @@ public class ConsoleSuperMenu {
                 }
                 break;
                 case 2: {
-                    System.out.println("SUPER => option 2");
+                    System.out.println(SUPER_DATABASE);
+                    ConsoleDatabaseMenu.main();
                 }
                 break;
                 case 3: {

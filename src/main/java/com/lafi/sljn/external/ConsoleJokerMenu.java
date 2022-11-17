@@ -25,7 +25,8 @@ public class ConsoleJokerMenu {
                 }
                 break;
                 case 2: {
-                    System.out.println("JOKER => option 2");
+                    System.out.println(JOKER_DATABASE);
+                    ConsoleDatabaseMenu.main();
                 }
                 break;
                 case 3: {

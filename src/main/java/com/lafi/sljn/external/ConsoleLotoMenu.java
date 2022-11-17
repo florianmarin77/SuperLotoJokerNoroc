@@ -25,7 +25,8 @@ public class ConsoleLotoMenu {
                 }
                 break;
                 case 2: {
-                    System.out.println("LOTO => option 2");
+                    System.out.println(LOTO_DATABASE);
+                    ConsoleDatabaseMenu.main();
                 }
                 break;
                 case 3: {
