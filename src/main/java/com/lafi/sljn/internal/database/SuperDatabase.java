@@ -5,7 +5,7 @@ import com.lafi.sljn.internal.model.Sample;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuperDatabase implements Database {
+public class SuperDatabase {
 
     // Singleton pattern
     private static SuperDatabase superDatabase = null;

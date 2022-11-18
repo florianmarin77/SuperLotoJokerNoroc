@@ -26,7 +26,7 @@ public class ConsoleMenu {
 
     public static void main(String[] args) {
 
-        // Super Database
+        // Super database
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
             SUPERDB.setSuperList(LOADER.loadData(path));
@@ -35,7 +35,7 @@ public class ConsoleMenu {
             exception.printStackTrace();
         }
 
-        // Loto Database
+        // Loto database
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
             LOTODB.setLotoList(LOADER.loadData(path));
@@ -44,7 +44,7 @@ public class ConsoleMenu {
             exception.printStackTrace();
         }
 
-        // Joker Database
+        // Joker database
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
             JOKERDB.setJokerList(LOADER.loadData(path));

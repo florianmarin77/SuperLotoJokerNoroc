@@ -5,7 +5,7 @@ import com.lafi.sljn.internal.model.Sample;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LotoDatabase implements Database {
+public class LotoDatabase {
 
     // Singleton pattern
     private static LotoDatabase lotoDatabase = null;

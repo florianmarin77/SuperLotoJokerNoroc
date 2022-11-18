@@ -49,11 +49,11 @@ public class ConsoleDatabaseMenu {
         System.out.println("+------------------+");
         System.out.println("| DATABASE MENU    |");
         System.out.println("|------------------|");
-        System.out.println("| 0. Exit Database |");
-        System.out.println("| 1. Create Sample |");
-        System.out.println("| 2. Read Sample   |");
-        System.out.println("| 3. Update Sample |");
-        System.out.println("| 4. Delete Sample |");
+        System.out.println("| 0. Exit database |");
+        System.out.println("| 1. Create sample |");
+        System.out.println("| 2. Read sample   |");
+        System.out.println("| 3. Update sample |");
+        System.out.println("| 4. Delete sample |");
         System.out.println("+-------------------+");
 
         System.out.println(SELECT_OPTION);

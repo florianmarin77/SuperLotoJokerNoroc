@@ -5,7 +5,7 @@ import com.lafi.sljn.internal.model.Sample;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JokerDatabase implements Database {
+public class JokerDatabase {
 
     // Singleton pattern
     private static JokerDatabase jokerDatabase = null;
