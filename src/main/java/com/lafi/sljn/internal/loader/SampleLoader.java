@@ -12,9 +12,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class SampleLoader implements Loader<Sample> {
+public class SampleLoader {
 
-    @Override
     public List<Sample> loadData(Path path) {
         List<String> data = new ArrayList<>();
 

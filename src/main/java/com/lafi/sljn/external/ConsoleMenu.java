@@ -4,7 +4,7 @@ import com.lafi.sljn.internal.database.JokerDatabase;
 import com.lafi.sljn.internal.database.LotoDatabase;
 import com.lafi.sljn.internal.database.SuperDatabase;
 import com.lafi.sljn.internal.loader.SampleLoader;
-import com.lafi.sljn.internal.loader.SingleLoader;
+import com.lafi.sljn.internal.loader.ResourceLoader;
 import com.lafi.sljn.internal.model.Single;
 
 import java.net.URISyntaxException;
@@ -131,7 +131,7 @@ public class ConsoleMenu {
     }
 
     static void displaySingles(Path path) {
-        SingleLoader loader = new SingleLoader();
+        ResourceLoader loader = new ResourceLoader();
 
         List<Single> singles = loader.loadData(Paths.get(String.valueOf(path)));
 

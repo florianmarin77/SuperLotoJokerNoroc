@@ -10,9 +10,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class SingleLoader implements Loader<Single> {
+public class ResourceLoader {
 
-    @Override
     public List<Single> loadData(Path path) {
         List<String> data = new ArrayList<>();
 
@@ -22,7 +21,7 @@ public class SingleLoader implements Loader<Single> {
             exception.printStackTrace();
         }
 
-        List<Single> result = new ArrayList<>();
+        List<Single> singles = new ArrayList<>();
 
         for (String item : data) {
             List<String> itemData = Pattern.compile(",").splitAsStream(item).collect(Collectors.toList());
@@ -40,9 +39,9 @@ public class SingleLoader implements Loader<Single> {
             single.setIntex5(itemData.get(5));
             single.setIntex6(itemData.get(6));
 
-            result.add(single);
+            singles.add(single);
         }
 
-        return result;
+        return singles;
     }
 }
