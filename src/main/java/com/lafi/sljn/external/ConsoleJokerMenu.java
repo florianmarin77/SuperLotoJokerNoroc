@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.lafi.sljn.external.ConsoleMenu.JOKERDB;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class ConsoleJokerMenu {
@@ -26,7 +27,7 @@ public class ConsoleJokerMenu {
                 break;
                 case 2: {
                     System.out.println(JOKER_DATABASE);
-                    ConsoleDatabaseMenu.main();
+                    ConsoleDatabaseMenu.main(JOKERDB.getJokerList());
                 }
                 break;
                 case 3: {

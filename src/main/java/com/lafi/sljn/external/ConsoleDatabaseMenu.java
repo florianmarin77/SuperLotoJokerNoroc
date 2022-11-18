@@ -1,10 +1,14 @@
 package com.lafi.sljn.external;
 
+import com.lafi.sljn.internal.model.Sample;
+
+import java.util.List;
+
 import static com.lafi.sljn.internal.message.CommonMessages.INVALID_OPTION;
 import static com.lafi.sljn.internal.message.CommonMessages.SELECT_OPTION;
 
 public class ConsoleDatabaseMenu {
-    static void main() {
+    static void main(List<Sample> samples) {
 
         boolean exitDatabaseMenu = false;
         do {

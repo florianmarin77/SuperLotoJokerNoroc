@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.lafi.sljn.external.ConsoleMenu.LOTODB;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class ConsoleLotoMenu {
@@ -26,7 +27,7 @@ public class ConsoleLotoMenu {
                 break;
                 case 2: {
                     System.out.println(LOTO_DATABASE);
-                    ConsoleDatabaseMenu.main();
+                    ConsoleDatabaseMenu.main(LOTODB.getLotoList());
                 }
                 break;
                 case 3: {

@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.lafi.sljn.external.ConsoleMenu.SUPERDB;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class ConsoleSuperMenu {
@@ -26,7 +27,7 @@ public class ConsoleSuperMenu {
                 break;
                 case 2: {
                     System.out.println(SUPER_DATABASE);
-                    ConsoleDatabaseMenu.main();
+                    ConsoleDatabaseMenu.main(SUPERDB.getSuperList());
                 }
                 break;
                 case 3: {
@@ -39,8 +40,6 @@ public class ConsoleSuperMenu {
                 break;
             }
         } while (!exitSuperMenu);
-
-
     }
 
     private static void readSuperResource() {
