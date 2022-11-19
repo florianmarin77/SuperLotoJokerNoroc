@@ -24,13 +24,13 @@ public class ConsoleMenu {
     public static void main(String[] args) {
 
         // SUPER database
-        System.out.println(SuperDatabase.loadResource());
+        SuperDatabase.loadResource();
 
         // LOTO database
-        System.out.println(LotoDatabase.loadResource());
+        LotoDatabase.loadResource();
 
         // JOKER database
-        System.out.println(JokerDatabase.loadResource());
+        JokerDatabase.loadResource();
 
         // Console Menus
         boolean exitMainMenu = false;

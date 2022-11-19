@@ -38,7 +38,7 @@ public class SuperDatabase {
     }
 
     // special methods
-    public static List<Sample> loadResource() {
+    public static void loadResource() {
         List<Single> superSingles = new ArrayList<>();
 
         try {
@@ -105,7 +105,6 @@ public class SuperDatabase {
         }
 
         SUPERDB.setSuperList(superSamples);
-        return superSamples;
     }
 
     // getters & setters

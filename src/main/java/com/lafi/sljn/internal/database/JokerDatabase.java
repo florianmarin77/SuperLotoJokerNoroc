@@ -38,7 +38,7 @@ public class JokerDatabase {
     }
 
     // special methods
-    public static List<Sample> loadResource() {
+    public static void loadResource() {
         List<Single> jokerSingles = new ArrayList<>();
 
         try {
@@ -104,8 +104,6 @@ public class JokerDatabase {
         }
 
         JOKERDB.setJokerList(jokerSamples);
-
-        return jokerSamples;
     }
 
     // getters & setters
