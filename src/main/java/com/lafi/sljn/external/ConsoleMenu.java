@@ -3,11 +3,9 @@ package com.lafi.sljn.external;
 import com.lafi.sljn.internal.database.JokerDatabase;
 import com.lafi.sljn.internal.database.LotoDatabase;
 import com.lafi.sljn.internal.database.SuperDatabase;
-import com.lafi.sljn.internal.loader.SampleLoader;
 import com.lafi.sljn.internal.loader.ResourceLoader;
 import com.lafi.sljn.internal.model.Single;
 
-import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.InputMismatchException;
@@ -18,40 +16,21 @@ import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class ConsoleMenu {
     static final Scanner SCANNER = new Scanner(System.in);
-    static final SampleLoader LOADER = new SampleLoader();
 
-    static final SuperDatabase SUPERDB = SuperDatabase.getInstance();
-    static final LotoDatabase LOTODB = LotoDatabase.getInstance();
     static final JokerDatabase JOKERDB = JokerDatabase.getInstance();
+    static final LotoDatabase LOTODB = LotoDatabase.getInstance();
+    static final SuperDatabase SUPERDB = SuperDatabase.getInstance();
 
     public static void main(String[] args) {
 
-        // Super database
-        try {
-            Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
-            SUPERDB.setSuperList(LOADER.loadData(path));
-            System.out.println(SUPER_DATABASE);
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-        }
+        // SUPER database
+        System.out.println(SuperDatabase.loadResource());
 
-        // Loto database
-        try {
-            Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
-            LOTODB.setLotoList(LOADER.loadData(path));
-            System.out.println(LOTO_DATABASE);
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-        }
+        // LOTO database
+        System.out.println(LotoDatabase.loadResource());
 
-        // Joker database
-        try {
-            Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
-            JOKERDB.setJokerList(LOADER.loadData(path));
-            System.out.println(JOKER_DATABASE);
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-        }
+        // JOKER database
+        System.out.println(JokerDatabase.loadResource());
 
         // Console Menus
         boolean exitMainMenu = false;

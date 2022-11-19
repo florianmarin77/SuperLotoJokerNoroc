@@ -38,7 +38,7 @@ public class LotoDatabase {
     }
 
     // special methods
-    public static void loadResource() {
+    public static List<Sample> loadResource() {
         List<Single> lotoSingles = new ArrayList<>();
 
         try {
@@ -105,7 +105,8 @@ public class LotoDatabase {
         }
 
         LOTODB.setLotoList(lotoSamples);
-        System.out.println(lotoSamples);
+
+        return lotoSamples;
     }
 
     // getters & setters
