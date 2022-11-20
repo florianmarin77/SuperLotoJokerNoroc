@@ -4,34 +4,32 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.lafi.sljn.external.ConsoleMenu.SUPERDB;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
-public class ConsoleSuperMenu {
+public class JokerMenu {
     static void main() {
 
-        boolean exitSuperMenu = false;
+        boolean exitJokerMenu = false;
         do {
-            displaySuperMenu();
+            displayJokerMenu();
 
             int selectedOption = ConsoleMenu.selectValidOption();
 
             switch (selectedOption) {
                 case 0: {
-                    exitSuperMenu = true;
+                    exitJokerMenu = true;
                 }
                 break;
                 case 1: {
-                    ConsoleSuperMenu.readSuperResource();
+                    JokerMenu.readJokerResource();
                 }
                 break;
                 case 2: {
-                    System.out.println(SUPER_DATABASE);
-                    ConsoleDatabaseMenu.main(SUPERDB.getSuperList());
+                    System.out.println("JOKER => option 2");
                 }
                 break;
                 case 3: {
-                    System.out.println("SUPER => option 3");
+                    System.out.println("JOKER => option 3");
                 }
                 break;
                 default: {
@@ -39,27 +37,27 @@ public class ConsoleSuperMenu {
                 }
                 break;
             }
-        } while (!exitSuperMenu);
+        } while (!exitJokerMenu);
     }
 
-    private static void readSuperResource() {
-        System.out.println(SUPER_LOADING);
+    private static void readJokerResource() {
+        System.out.println(JOKER_LOADING);
 
         try {
-            Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
+            Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
             ConsoleMenu.displaySingles(path);
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
-        System.out.println(SUPER_PRINTING);
+        System.out.println(JOKER_PRINTING);
     }
 
-    private static void displaySuperMenu() {
+    private static void displayJokerMenu() {
         System.out.println("+-------------------+");
-        System.out.println("| SUPER MENU        |");
+        System.out.println("| JOKER MENU        |");
         System.out.println("|-------------------|");
-        System.out.println("| 0. Exit Super     |");
+        System.out.println("| 0. Exit Joker     |");
         System.out.println("| 1. Load resource  |");
         System.out.println("| 2. Load database  |");
         System.out.println("| 3. no name option |");

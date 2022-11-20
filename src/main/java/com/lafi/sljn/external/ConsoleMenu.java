@@ -17,10 +17,6 @@ import static com.lafi.sljn.internal.message.CommonMessages.*;
 public class ConsoleMenu {
     static final Scanner SCANNER = new Scanner(System.in);
 
-    static final JokerDatabase JOKERDB = JokerDatabase.getInstance();
-    static final LotoDatabase LOTODB = LotoDatabase.getInstance();
-    static final SuperDatabase SUPERDB = SuperDatabase.getInstance();
-
     public static void main(String[] args) {
 
         // SUPER database
@@ -57,15 +53,15 @@ public class ConsoleMenu {
                             }
                             break;
                             case 1: {
-                                ConsoleSuperMenu.main();
+                                SuperMenu.main();
                             }
                             break;
                             case 2: {
-                                ConsoleLotoMenu.main();
+                                LotoMenu.main();
                             }
                             break;
                             case 3: {
-                                ConsoleJokerMenu.main();
+                                JokerMenu.main();
                             }
                             break;
                             default: {
