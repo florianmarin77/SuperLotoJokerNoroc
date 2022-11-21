@@ -1,5 +1,7 @@
 package com.lafi.sljn.external;
 
+import com.lafi.sljn.internal.database.SuperDatabase;
+
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,6 +9,8 @@ import java.nio.file.Paths;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class SuperMenu {
+    private static final SuperDatabase SUPERDB = SuperDatabase.getInstance();
+
     static void main() {
 
         boolean exitSuperMenu = false;
@@ -25,7 +29,7 @@ public class SuperMenu {
                 }
                 break;
                 case 2: {
-                    System.out.println("SUPER => option 2");
+                    SuperMenu.readSuperDatabase();
                 }
                 break;
                 case 3: {
@@ -51,6 +55,12 @@ public class SuperMenu {
         }
 
         System.out.println(SUPER_PRINTING);
+    }
+
+    private static void readSuperDatabase() {
+        ConsoleMenu.displaySamples(SUPERDB.getSuperList());
+
+        System.out.println(SUPER_DATABASE);
     }
 
     private static void displaySuperMenu() {

@@ -1,5 +1,7 @@
 package com.lafi.sljn.external;
 
+import com.lafi.sljn.internal.database.LotoDatabase;
+
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,6 +9,8 @@ import java.nio.file.Paths;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class LotoMenu {
+    private static final LotoDatabase LOTODB = LotoDatabase.getInstance();
+
     static void main() {
 
         boolean exitLotoMenu = false;
@@ -25,7 +29,7 @@ public class LotoMenu {
                 }
                 break;
                 case 2: {
-                    System.out.println("LOTO => option 2");
+                    LotoMenu.readLotoDatabase();
                 }
                 break;
                 case 3: {
@@ -51,6 +55,12 @@ public class LotoMenu {
         }
 
         System.out.println(LOTO_PRINTING);
+    }
+
+    private static void readLotoDatabase() {
+        ConsoleMenu.displaySamples(LOTODB.getLotoList());
+
+        System.out.println(LOTO_DATABASE);
     }
 
     private static void displayLotoMenu() {

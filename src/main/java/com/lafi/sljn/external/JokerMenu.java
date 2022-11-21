@@ -1,5 +1,7 @@
 package com.lafi.sljn.external;
 
+import com.lafi.sljn.internal.database.JokerDatabase;
+
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,6 +9,8 @@ import java.nio.file.Paths;
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class JokerMenu {
+    private static final JokerDatabase JOKERDB = JokerDatabase.getInstance();
+
     static void main() {
 
         boolean exitJokerMenu = false;
@@ -25,7 +29,7 @@ public class JokerMenu {
                 }
                 break;
                 case 2: {
-                    System.out.println("JOKER => option 2");
+                    JokerMenu.readJokerDatabase();
                 }
                 break;
                 case 3: {
@@ -51,6 +55,12 @@ public class JokerMenu {
         }
 
         System.out.println(JOKER_PRINTING);
+    }
+
+    private static void readJokerDatabase() {
+        ConsoleMenu.displaySamples(JOKERDB.getJokerList());
+
+        System.out.println(JOKER_DATABASE);
     }
 
     private static void displayJokerMenu() {

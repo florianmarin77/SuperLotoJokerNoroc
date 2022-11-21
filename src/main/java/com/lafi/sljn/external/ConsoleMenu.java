@@ -4,6 +4,7 @@ import com.lafi.sljn.internal.database.JokerDatabase;
 import com.lafi.sljn.internal.database.LotoDatabase;
 import com.lafi.sljn.internal.database.SuperDatabase;
 import com.lafi.sljn.internal.loader.ResourceLoader;
+import com.lafi.sljn.internal.model.Sample;
 import com.lafi.sljn.internal.model.Single;
 
 import java.nio.file.Path;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import static com.lafi.sljn.internal.message.CommonMessages.*;
+import static com.lafi.sljn.internal.message.SpecialMessages.*;
 
 public class ConsoleMenu {
     static final Scanner SCANNER = new Scanner(System.in);
@@ -113,6 +115,104 @@ public class ConsoleMenu {
         for (Single item : singles) {
             System.out.println(item);
         }
+    }
+
+    static void displaySamples(List<Sample> samples) {
+
+        System.out.println(OUTSIDE_LINE);
+        System.out.println(TEXT_LINE);
+        System.out.println(INSIDE_LINE);
+
+        for (Sample item : samples) {
+
+            System.out.print("| " + item.getDatex() + " | ");
+
+            if (item.getIntex1() < 10) {
+                System.out.print("0" + item.getIntex1() + " ");
+            } else {
+                System.out.print(item.getIntex1() + " ");
+            }
+
+            if (item.getIntex2() < 10) {
+                System.out.print("0" + item.getIntex2() + " ");
+            } else {
+                System.out.print(item.getIntex2() + " ");
+            }
+
+            if (item.getIntex3() < 10) {
+                System.out.print("0" + item.getIntex3() + " ");
+            } else {
+                System.out.print(item.getIntex3() + " ");
+            }
+
+            if (item.getIntex4() < 10) {
+                System.out.print("0" + item.getIntex4() + " ");
+            } else {
+                System.out.print(item.getIntex4() + " ");
+            }
+
+            if (item.getIntex5() < 10) {
+                System.out.print("0" + item.getIntex5() + " ");
+            } else {
+                System.out.print(item.getIntex5() + " ");
+            }
+
+            if (item.getIntex6() < 10) {
+                System.out.print("0" + item.getIntex6() + " | ");
+            } else {
+                System.out.print(item.getIntex6() + " | ");
+            }
+
+            switch (item.getCodex().length()) {
+                case 1: {
+                    System.out.print(item.getCodex() + "     | ");
+                }
+                break;
+                case 2: {
+                    System.out.print(item.getCodex() + "    | ");
+                }
+                break;
+                case 3: {
+                    System.out.print(item.getCodex() + "   | ");
+                }
+                break;
+                case 4: {
+                    System.out.print(item.getCodex() + "  | ");
+                }
+                break;
+                case 5: {
+                    System.out.print(item.getCodex() + " | ");
+                }
+                break;
+            }
+
+            switch (String.valueOf(item.getIndex()).length()) {
+                case 1: {
+                    System.out.print("0000" + item.getIndex() + " |");
+                }
+                break;
+                case 2: {
+                    System.out.print("000" + item.getIndex() + " |");
+                }
+                break;
+                case 3: {
+                    System.out.print("00" + item.getIndex() + " |");
+                }
+                break;
+                case 4: {
+                    System.out.print("0" + item.getIndex() + " |");
+                }
+                break;
+                case 5: {
+                    System.out.print(item.getIndex() + " |");
+                }
+                break;
+            }
+
+            System.out.println();
+        }
+
+        System.out.println(OUTSIDE_LINE);
     }
 
     static int selectValidOption() {
