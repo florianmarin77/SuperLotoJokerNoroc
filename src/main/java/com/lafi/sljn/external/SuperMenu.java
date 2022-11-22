@@ -58,7 +58,7 @@ public class SuperMenu {
     }
 
     private static void readSuperDatabase() {
-        ConsoleMenu.displaySamples(SUPERDB.getSuperList());
+        ConsoleMenu.displaySamples(SUPERDB.getSamples());
 
         System.out.println(SUPER_DATABASE);
     }

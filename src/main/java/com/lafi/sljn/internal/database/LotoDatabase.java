@@ -19,10 +19,13 @@ import static com.lafi.sljn.internal.message.CommonMessages.LOTO_PATH;
 public class LotoDatabase {
 
     // Singleton pattern
-    private static LotoDatabase lotoDatabase = null;
+    private static LotoDatabase database = null;
 
-    // database resource
-    private List<Sample> lotoList = new ArrayList<>();
+    // database resources
+    private List<Sample> samples = new ArrayList<>();
+
+    private List<Integer> absoluteFrequencies = new ArrayList<>();
+    private List<Integer> relativeFrequencies = new ArrayList<>();
 
     // constructor
     private LotoDatabase() {
@@ -31,31 +34,31 @@ public class LotoDatabase {
 
     // Thread Safe Lazy Singleton
     public static synchronized LotoDatabase getInstance() {
-        if (lotoDatabase == null) {
-            lotoDatabase = new LotoDatabase();
+        if (database == null) {
+            database = new LotoDatabase();
         }
-        return lotoDatabase;
+        return database;
     }
 
     // special methods
     public static void loadResource() {
-        List<Single> lotoSingles = new ArrayList<>();
+        List<Single> singles = new ArrayList<>();
 
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
-            lotoSingles = LOADER.loadData(path);
+            singles = LOADER.loadData(path);
             System.out.println(LOTO_DATABASE);
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
-        List<Sample> lotoSamples = new ArrayList<>();
-        Integer lastLotoIndex = 0;
+        List<Sample> samples = new ArrayList<>();
+        Integer lastIndex = 0;
 
-        for (Single item : lotoSingles) {
+        for (Single item : singles) {
 
             Sample sample = new Sample();
-            lastLotoIndex++;
+            lastIndex++;
 
             // DATEX ready
             sample.setDatex(item.getDatex());
@@ -99,20 +102,36 @@ public class LotoDatabase {
             sample.setCodex(string.toString());
 
             // INDEX ready
-            sample.setIndex(lastLotoIndex);
+            sample.setIndex(lastIndex);
 
-            lotoSamples.add(sample);
+            samples.add(sample);
         }
 
-        LOTODB.setLotoList(lotoSamples);
+        LOTODB.setSamples(samples);
     }
 
     // getters & setters
-    public List<Sample> getLotoList() {
-        return lotoList;
+    public List<Sample> getSamples() {
+        return samples;
     }
 
-    public void setLotoList(List<Sample> lotoList) {
-        this.lotoList = lotoList;
+    public void setSamples(List<Sample> samples) {
+        this.samples = samples;
+    }
+
+    public List<Integer> getAbsoluteFrequencies() {
+        return absoluteFrequencies;
+    }
+
+    public void setAbsoluteFrequencies(List<Integer> absoluteFrequencies) {
+        this.absoluteFrequencies = absoluteFrequencies;
+    }
+
+    public List<Integer> getRelativeFrequencies() {
+        return relativeFrequencies;
+    }
+
+    public void setRelativeFrequencies(List<Integer> relativeFrequencies) {
+        this.relativeFrequencies = relativeFrequencies;
     }
 }

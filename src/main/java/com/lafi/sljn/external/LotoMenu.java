@@ -58,7 +58,7 @@ public class LotoMenu {
     }
 
     private static void readLotoDatabase() {
-        ConsoleMenu.displaySamples(LOTODB.getLotoList());
+        ConsoleMenu.displaySamples(LOTODB.getSamples());
 
         System.out.println(LOTO_DATABASE);
     }

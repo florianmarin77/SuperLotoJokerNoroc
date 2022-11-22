@@ -19,10 +19,13 @@ import static com.lafi.sljn.internal.message.CommonMessages.JOKER_PATH;
 public class JokerDatabase {
 
     // Singleton pattern
-    private static JokerDatabase jokerDatabase = null;
+    private static JokerDatabase database = null;
 
-    // database resource
-    private List<Sample> jokerList = new ArrayList<>();
+    // database resources
+    private List<Sample> samples = new ArrayList<>();
+
+    private List<Integer> absoluteFrequencies = new ArrayList<>();
+    private List<Integer> relativeFrequencies = new ArrayList<>();
 
     // constructor
     private JokerDatabase() {
@@ -31,31 +34,31 @@ public class JokerDatabase {
 
     // Thread Safe Lazy Singleton
     public static synchronized JokerDatabase getInstance() {
-        if (jokerDatabase == null) {
-            jokerDatabase = new JokerDatabase();
+        if (database == null) {
+            database = new JokerDatabase();
         }
-        return jokerDatabase;
+        return database;
     }
 
     // special methods
     public static void loadResource() {
-        List<Single> jokerSingles = new ArrayList<>();
+        List<Single> singles = new ArrayList<>();
 
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
-            jokerSingles = LOADER.loadData(path);
+            singles = LOADER.loadData(path);
             System.out.println(JOKER_DATABASE);
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
-        List<Sample> jokerSamples = new ArrayList<>();
-        Integer lastJokerIndex = 0;
+        List<Sample> samples = new ArrayList<>();
+        Integer lastIndex = 0;
 
-        for (Single item : jokerSingles) {
+        for (Single item : singles) {
 
             Sample sample = new Sample();
-            lastJokerIndex++;
+            lastIndex++;
 
             // DATEX ready
             sample.setDatex(item.getDatex());
@@ -98,20 +101,36 @@ public class JokerDatabase {
             sample.setCodex(string.toString());
 
             // INDEX ready
-            sample.setIndex(lastJokerIndex);
+            sample.setIndex(lastIndex);
 
-            jokerSamples.add(sample);
+            samples.add(sample);
         }
 
-        JOKERDB.setJokerList(jokerSamples);
+        JOKERDB.setSamples(samples);
     }
 
     // getters & setters
-    public List<Sample> getJokerList() {
-        return jokerList;
+    public List<Sample> getSamples() {
+        return samples;
     }
 
-    public void setJokerList(List<Sample> jokerList) {
-        this.jokerList = jokerList;
+    public void setSamples(List<Sample> samples) {
+        this.samples = samples;
+    }
+
+    public List<Integer> getAbsoluteFrequencies() {
+        return absoluteFrequencies;
+    }
+
+    public void setAbsoluteFrequencies(List<Integer> absoluteFrequencies) {
+        this.absoluteFrequencies = absoluteFrequencies;
+    }
+
+    public List<Integer> getRelativeFrequencies() {
+        return relativeFrequencies;
+    }
+
+    public void setRelativeFrequencies(List<Integer> relativeFrequencies) {
+        this.relativeFrequencies = relativeFrequencies;
     }
 }

@@ -19,10 +19,13 @@ import static com.lafi.sljn.internal.message.CommonMessages.SUPER_PATH;
 public class SuperDatabase {
 
     // Singleton pattern
-    private static SuperDatabase superDatabase = null;
+    private static SuperDatabase database = null;
 
-    // database resource
-    private List<Sample> superList = new ArrayList<>();
+    // database resources
+    private List<Sample> samples = new ArrayList<>();
+
+    private List<Integer> absoluteFrequencies = new ArrayList<>();
+    private List<Integer> relativeFrequencies = new ArrayList<>();
 
     // constructor
     private SuperDatabase() {
@@ -31,31 +34,31 @@ public class SuperDatabase {
 
     // Thread Safe Lazy Singleton
     public static synchronized SuperDatabase getInstance() {
-        if (superDatabase == null) {
-            superDatabase = new SuperDatabase();
+        if (database == null) {
+            database = new SuperDatabase();
         }
-        return superDatabase;
+        return database;
     }
 
     // special methods
     public static void loadResource() {
-        List<Single> superSingles = new ArrayList<>();
+        List<Single> singles = new ArrayList<>();
 
         try {
             Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
-            superSingles = LOADER.loadData(path);
+            singles = LOADER.loadData(path);
             System.out.println(SUPER_DATABASE);
         } catch (URISyntaxException exception) {
             exception.printStackTrace();
         }
 
-        List<Sample> superSamples = new ArrayList<>();
-        Integer lastSuperIndex = 0;
+        List<Sample> samples = new ArrayList<>();
+        Integer lastIndex = 0;
 
-        for (Single item : superSingles) {
+        for (Single item : singles) {
 
             Sample sample = new Sample();
-            lastSuperIndex++;
+            lastIndex++;
 
             // DATEX ready
             sample.setDatex(item.getDatex());
@@ -99,20 +102,36 @@ public class SuperDatabase {
             sample.setCodex(string.toString());
 
             // INDEX ready
-            sample.setIndex(lastSuperIndex);
+            sample.setIndex(lastIndex);
 
-            superSamples.add(sample);
+            samples.add(sample);
         }
 
-        SUPERDB.setSuperList(superSamples);
+        SUPERDB.setSamples(samples);
     }
 
     // getters & setters
-    public List<Sample> getSuperList() {
-        return superList;
+    public List<Sample> getSamples() {
+        return samples;
     }
 
-    public void setSuperList(List<Sample> superList) {
-        this.superList = superList;
+    public void setSamples(List<Sample> samples) {
+        this.samples = samples;
+    }
+
+    public List<Integer> getAbsoluteFrequencies() {
+        return absoluteFrequencies;
+    }
+
+    public void setAbsoluteFrequencies(List<Integer> absoluteFrequencies) {
+        this.absoluteFrequencies = absoluteFrequencies;
+    }
+
+    public List<Integer> getRelativeFrequencies() {
+        return relativeFrequencies;
+    }
+
+    public void setRelativeFrequencies(List<Integer> relativeFrequencies) {
+        this.relativeFrequencies = relativeFrequencies;
     }
 }
