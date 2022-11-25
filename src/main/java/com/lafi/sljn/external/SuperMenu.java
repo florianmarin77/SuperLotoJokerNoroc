@@ -25,15 +25,15 @@ public class SuperMenu {
                 }
                 break;
                 case 1: {
-                    SuperMenu.readSuperResource();
+                    SuperMenu.readResource();
                 }
                 break;
                 case 2: {
-                    SuperMenu.readSuperDatabase();
+                    SuperMenu.readDatabase();
                 }
                 break;
                 case 3: {
-                    System.out.println("SUPER => option 3");
+                    SuperMenu.readFrequencies();
                 }
                 break;
                 default: {
@@ -44,7 +44,20 @@ public class SuperMenu {
         } while (!exitSuperMenu);
     }
 
-    private static void readSuperResource() {
+    private static void displaySuperMenu() {
+        System.out.println("+-------------------+");
+        System.out.println("| SUPER MENU        |");
+        System.out.println("|-------------------|");
+        System.out.println("| 0. Exit           |");
+        System.out.println("| 1. Load resource  |");
+        System.out.println("| 2. Load database  |");
+        System.out.println("| 3. Frequencies    |");
+        System.out.println("+-------------------+");
+
+        System.out.println(SELECT_OPTION);
+    }
+
+    private static void readResource() {
         System.out.println(SUPER_LOADING);
 
         try {
@@ -57,22 +70,13 @@ public class SuperMenu {
         System.out.println(SUPER_PRINTING);
     }
 
-    private static void readSuperDatabase() {
+    private static void readDatabase() {
         ConsoleMenu.displaySamples(SUPERDB.getSamples());
 
         System.out.println(SUPER_DATABASE);
     }
 
-    private static void displaySuperMenu() {
-        System.out.println("+-------------------+");
-        System.out.println("| SUPER MENU        |");
-        System.out.println("|-------------------|");
-        System.out.println("| 0. Exit Super     |");
-        System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. Load database  |");
-        System.out.println("| 3. no name option |");
-        System.out.println("+-------------------+");
-
-        System.out.println(SELECT_OPTION);
+    private static void readFrequencies() {
+        ConsoleMenu.displayFrequencies(SUPERDB.getAbsolutes(), SUPERDB.getRelatives());
     }
 }

@@ -22,7 +22,8 @@ public class ConsoleMenu {
     public static void main(String[] args) {
 
         // SUPER database
-        SuperDatabase.loadResource();
+        SuperDatabase.loadResources();
+        SuperDatabase.loadFrequencies();
 
         // LOTO database
         LotoDatabase.loadResource();
@@ -105,6 +106,22 @@ public class ConsoleMenu {
         System.out.println("+-----------+");
 
         System.out.println(SELECT_OPTION);
+    }
+
+    static int selectValidOption() {
+        int selectedOption;
+
+        while (true) {
+            try {
+                selectedOption = SCANNER.nextInt();
+                break;
+            } catch (InputMismatchException exception) {
+                System.out.println(INVALID_NUMBER);
+            }
+            SCANNER.nextLine();
+        }
+
+        return selectedOption;
     }
 
     static void displaySingles(Path path) {
@@ -212,22 +229,44 @@ public class ConsoleMenu {
             System.out.println();
         }
 
+        System.out.println(INSIDE_LINE);
+        System.out.println(TEXT_LINE);
         System.out.println(OUTSIDE_LINE);
     }
 
-    static int selectValidOption() {
-        int selectedOption;
+    static void displayFrequencies(List<Integer> absolutes, List<Integer> relatives) {
+        System.out.println("+------------------------------+");
+        System.out.println("| NUMBERS FREQUENCIES BY SUPER |");
+        System.out.println("|------------------------------|");
+        System.out.println("| NUMBER | ABSOLUTE | RELATIVE |");
+        System.out.println("|------------------------------|");
 
-        while (true) {
-            try {
-                selectedOption = SCANNER.nextInt();
-                break;
-            } catch (InputMismatchException exception) {
-                System.out.println(INVALID_NUMBER);
+        for (int k = 1; k < 41; k++) {
+            System.out.print("| ");
+            if (k < 10) {
+                System.out.print("0" + k + "     ");
+            } else {
+                System.out.print(k + "     ");
             }
-            SCANNER.nextLine();
+
+            int absoluteDigits = String.valueOf(absolutes.get(k - 1)).length();
+            int relativeDigits = String.valueOf(relatives.get(k - 1)).length();
+            final int blankSpaces = 8;
+
+            System.out.print("| " + absolutes.get(k - 1));
+            for (int i = 0; i < blankSpaces - absoluteDigits; i++) {
+                System.out.print(" ");
+            }
+
+            System.out.print(" | " + relatives.get(k - 1));
+            for (int i = 0; i < blankSpaces - relativeDigits; i++) {
+                System.out.print(" ");
+            }
+
+            System.out.print(" |");
+            System.out.println();
         }
 
-        return selectedOption;
+        System.out.println("+------------------------------+");
     }
 }
