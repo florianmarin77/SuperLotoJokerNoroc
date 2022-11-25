@@ -136,9 +136,9 @@ public class ConsoleMenu {
 
     static void displaySamples(List<Sample> samples) {
 
-        System.out.println(OUTSIDE_LINE);
-        System.out.println(TEXT_LINE);
-        System.out.println(INSIDE_LINE);
+        System.out.println(OUTSIDE_LINE_48);
+        System.out.println(TEXT_LINE_48);
+        System.out.println(INSIDE_LINE_48);
 
         for (Sample item : samples) {
 
@@ -229,17 +229,17 @@ public class ConsoleMenu {
             System.out.println();
         }
 
-        System.out.println(INSIDE_LINE);
-        System.out.println(TEXT_LINE);
-        System.out.println(OUTSIDE_LINE);
+        System.out.println(INSIDE_LINE_48);
+        System.out.println(TEXT_LINE_48);
+        System.out.println(OUTSIDE_LINE_48);
     }
 
     static void displayFrequencies(List<Integer> absolutes, List<Integer> relatives) {
-        System.out.println("+------------------------------+");
-        System.out.println("| NUMBERS FREQUENCIES BY SUPER |");
-        System.out.println("|------------------------------|");
-        System.out.println("| NUMBER | ABSOLUTE | RELATIVE |");
-        System.out.println("|------------------------------|");
+        System.out.println(OUTSIDE_LINE_32);
+        System.out.println(FIRST_LINE_32);
+        System.out.println(INSIDE_LINE_32);
+        System.out.println(SECOND_LINE_32);
+        System.out.println(INSIDE_LINE_32);
 
         for (int k = 1; k < 41; k++) {
             System.out.print("| ");
@@ -267,6 +267,6 @@ public class ConsoleMenu {
             System.out.println();
         }
 
-        System.out.println("+------------------------------+");
+        System.out.println(OUTSIDE_LINE_32);
     }
 }
