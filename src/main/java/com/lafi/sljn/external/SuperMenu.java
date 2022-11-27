@@ -15,7 +15,7 @@ public class SuperMenu {
 
         boolean exitSuperMenu = false;
         do {
-            displaySuperMenu();
+            displayMenu();
 
             int selectedOption = ConsoleMenu.selectValidOption();
 
@@ -44,7 +44,7 @@ public class SuperMenu {
         } while (!exitSuperMenu);
     }
 
-    private static void displaySuperMenu() {
+    private static void displayMenu() {
         System.out.println("+-------------------+");
         System.out.println("| SUPER MENU        |");
         System.out.println("|-------------------|");
@@ -71,12 +71,12 @@ public class SuperMenu {
     }
 
     private static void readDatabase() {
-        ConsoleMenu.displaySamples(SUPERDB.getSamples());
+        ConsoleMenu.displaySamples(SUPERDB.getSamples(), 40);
 
         System.out.println(SUPER_DATABASE);
     }
 
     private static void readFrequencies() {
-        ConsoleMenu.displayFrequencies(SUPERDB.getAbsolutes(), SUPERDB.getRelatives());
+        ConsoleMenu.displayFrequencies(SUPERDB.getAbsolutes(), SUPERDB.getRelatives(), 40);
     }
 }

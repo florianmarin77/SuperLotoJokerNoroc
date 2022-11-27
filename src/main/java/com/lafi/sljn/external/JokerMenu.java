@@ -58,7 +58,7 @@ public class JokerMenu {
     }
 
     private static void readJokerDatabase() {
-        ConsoleMenu.displaySamples(JOKERDB.getSamples());
+        ConsoleMenu.displaySamples(JOKERDB.getSamples(), 45);
 
         System.out.println(JOKER_DATABASE);
     }

@@ -11,7 +11,7 @@ public class CommonMessages {
 
     // LOTO 6/49
     public static final String LOTO_LOADING = "Extragerile LOTO 6/49 sunt urmatoarele:";
-    public static final String LOTO_PRINTING = "Extragerile LOTO 6/49 sunt urmatoarele:";
+    public static final String LOTO_PRINTING = "Extragerile LOTO 6/49 sunt afisate complet!";
     public static final String LOTO_DATABASE = "LOTO DATABASE is active!";
     public static final String LOTO_PATH = "loto.txt";
 

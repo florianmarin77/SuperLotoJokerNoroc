@@ -11,8 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.lafi.sljn.internal.database.Database.LOADER;
-import static com.lafi.sljn.internal.database.Database.LOTODB;
+import static com.lafi.sljn.internal.database.Database.*;
 import static com.lafi.sljn.internal.message.CommonMessages.LOTO_DATABASE;
 import static com.lafi.sljn.internal.message.CommonMessages.LOTO_PATH;
 
@@ -22,10 +21,11 @@ public class LotoDatabase {
     private static LotoDatabase database = null;
 
     // database resources
+    private List<Single> singles = new ArrayList<>();
     private List<Sample> samples = new ArrayList<>();
 
-    private List<Integer> absoluteFrequencies = new ArrayList<>();
-    private List<Integer> relativeFrequencies = new ArrayList<>();
+    private List<Integer> absolutes = new ArrayList<>();
+    private List<Integer> relatives = new ArrayList<>();
 
     // constructor
     private LotoDatabase() {
@@ -40,7 +40,8 @@ public class LotoDatabase {
         return database;
     }
 
-    // special methods
+    /* ==================================================> special methods */
+
     public static void loadResource() {
         List<Single> singles = new ArrayList<>();
 
@@ -107,10 +108,1246 @@ public class LotoDatabase {
             samples.add(sample);
         }
 
+        LOTODB.setSingles(singles);
         LOTODB.setSamples(samples);
     }
 
-    // getters & setters
+    public static void loadFrequencies() {
+        List<Sample> samples = LOTODB.getSamples();
+
+        Integer[] frequencies = new Integer[49];
+        for (int k = 0; k < 49; k++) {
+            frequencies[k] = 0;
+        }
+
+        for (Sample item : samples) {
+            // INTEX 1
+            switch (item.getIntex1()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+                case 21: {
+                    frequencies[20]++;
+                }
+                break;
+                case 22: {
+                    frequencies[21]++;
+                }
+                break;
+                case 23: {
+                    frequencies[22]++;
+                }
+                break;
+                case 24: {
+                    frequencies[23]++;
+                }
+                break;
+                case 25: {
+                    frequencies[24]++;
+                }
+                break;
+                case 26: {
+                    frequencies[25]++;
+                }
+                break;
+                case 27: {
+                    frequencies[26]++;
+                }
+                break;
+                case 28: {
+                    frequencies[27]++;
+                }
+                break;
+                case 29: {
+                    frequencies[28]++;
+                }
+                break;
+                case 30: {
+                    frequencies[29]++;
+                }
+                break;
+                case 31: {
+                    frequencies[30]++;
+                }
+                break;
+                case 32: {
+                    frequencies[31]++;
+                }
+                break;
+                case 33: {
+                    frequencies[32]++;
+                }
+                break;
+                case 34: {
+                    frequencies[33]++;
+                }
+                break;
+                case 35: {
+                    frequencies[34]++;
+                }
+                break;
+                case 36: {
+                    frequencies[35]++;
+                }
+                break;
+                case 37: {
+                    frequencies[36]++;
+                }
+                break;
+                case 38: {
+                    frequencies[37]++;
+                }
+                break;
+                case 39: {
+                    frequencies[38]++;
+                }
+                break;
+                case 40: {
+                    frequencies[39]++;
+                }
+                break;
+                case 41: {
+                    frequencies[40]++;
+                }
+                break;
+                case 42: {
+                    frequencies[41]++;
+                }
+                break;
+                case 43: {
+                    frequencies[42]++;
+                }
+                break;
+                case 44: {
+                    frequencies[43]++;
+                }
+                break;
+                case 45: {
+                    frequencies[44]++;
+                }
+                break;
+                case 46: {
+                    frequencies[45]++;
+                }
+                break;
+                case 47: {
+                    frequencies[46]++;
+                }
+                break;
+                case 48: {
+                    frequencies[47]++;
+                }
+                break;
+                case 49: {
+                    frequencies[48]++;
+                }
+                break;
+            }
+
+            // INTEX 2
+            switch (item.getIntex2()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+                case 21: {
+                    frequencies[20]++;
+                }
+                break;
+                case 22: {
+                    frequencies[21]++;
+                }
+                break;
+                case 23: {
+                    frequencies[22]++;
+                }
+                break;
+                case 24: {
+                    frequencies[23]++;
+                }
+                break;
+                case 25: {
+                    frequencies[24]++;
+                }
+                break;
+                case 26: {
+                    frequencies[25]++;
+                }
+                break;
+                case 27: {
+                    frequencies[26]++;
+                }
+                break;
+                case 28: {
+                    frequencies[27]++;
+                }
+                break;
+                case 29: {
+                    frequencies[28]++;
+                }
+                break;
+                case 30: {
+                    frequencies[29]++;
+                }
+                break;
+                case 31: {
+                    frequencies[30]++;
+                }
+                break;
+                case 32: {
+                    frequencies[31]++;
+                }
+                break;
+                case 33: {
+                    frequencies[32]++;
+                }
+                break;
+                case 34: {
+                    frequencies[33]++;
+                }
+                break;
+                case 35: {
+                    frequencies[34]++;
+                }
+                break;
+                case 36: {
+                    frequencies[35]++;
+                }
+                break;
+                case 37: {
+                    frequencies[36]++;
+                }
+                break;
+                case 38: {
+                    frequencies[37]++;
+                }
+                break;
+                case 39: {
+                    frequencies[38]++;
+                }
+                break;
+                case 40: {
+                    frequencies[39]++;
+                }
+                break;
+                case 41: {
+                    frequencies[40]++;
+                }
+                break;
+                case 42: {
+                    frequencies[41]++;
+                }
+                break;
+                case 43: {
+                    frequencies[42]++;
+                }
+                break;
+                case 44: {
+                    frequencies[43]++;
+                }
+                break;
+                case 45: {
+                    frequencies[44]++;
+                }
+                break;
+                case 46: {
+                    frequencies[45]++;
+                }
+                break;
+                case 47: {
+                    frequencies[46]++;
+                }
+                break;
+                case 48: {
+                    frequencies[47]++;
+                }
+                break;
+                case 49: {
+                    frequencies[48]++;
+                }
+                break;
+            }
+
+            // INTEX 3
+            switch (item.getIntex3()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+                case 21: {
+                    frequencies[20]++;
+                }
+                break;
+                case 22: {
+                    frequencies[21]++;
+                }
+                break;
+                case 23: {
+                    frequencies[22]++;
+                }
+                break;
+                case 24: {
+                    frequencies[23]++;
+                }
+                break;
+                case 25: {
+                    frequencies[24]++;
+                }
+                break;
+                case 26: {
+                    frequencies[25]++;
+                }
+                break;
+                case 27: {
+                    frequencies[26]++;
+                }
+                break;
+                case 28: {
+                    frequencies[27]++;
+                }
+                break;
+                case 29: {
+                    frequencies[28]++;
+                }
+                break;
+                case 30: {
+                    frequencies[29]++;
+                }
+                break;
+                case 31: {
+                    frequencies[30]++;
+                }
+                break;
+                case 32: {
+                    frequencies[31]++;
+                }
+                break;
+                case 33: {
+                    frequencies[32]++;
+                }
+                break;
+                case 34: {
+                    frequencies[33]++;
+                }
+                break;
+                case 35: {
+                    frequencies[34]++;
+                }
+                break;
+                case 36: {
+                    frequencies[35]++;
+                }
+                break;
+                case 37: {
+                    frequencies[36]++;
+                }
+                break;
+                case 38: {
+                    frequencies[37]++;
+                }
+                break;
+                case 39: {
+                    frequencies[38]++;
+                }
+                break;
+                case 40: {
+                    frequencies[39]++;
+                }
+                break;
+                case 41: {
+                    frequencies[40]++;
+                }
+                break;
+                case 42: {
+                    frequencies[41]++;
+                }
+                break;
+                case 43: {
+                    frequencies[42]++;
+                }
+                break;
+                case 44: {
+                    frequencies[43]++;
+                }
+                break;
+                case 45: {
+                    frequencies[44]++;
+                }
+                break;
+                case 46: {
+                    frequencies[45]++;
+                }
+                break;
+                case 47: {
+                    frequencies[46]++;
+                }
+                break;
+                case 48: {
+                    frequencies[47]++;
+                }
+                break;
+                case 49: {
+                    frequencies[48]++;
+                }
+                break;
+            }
+
+            // INTEX 4
+            switch (item.getIntex4()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+                case 21: {
+                    frequencies[20]++;
+                }
+                break;
+                case 22: {
+                    frequencies[21]++;
+                }
+                break;
+                case 23: {
+                    frequencies[22]++;
+                }
+                break;
+                case 24: {
+                    frequencies[23]++;
+                }
+                break;
+                case 25: {
+                    frequencies[24]++;
+                }
+                break;
+                case 26: {
+                    frequencies[25]++;
+                }
+                break;
+                case 27: {
+                    frequencies[26]++;
+                }
+                break;
+                case 28: {
+                    frequencies[27]++;
+                }
+                break;
+                case 29: {
+                    frequencies[28]++;
+                }
+                break;
+                case 30: {
+                    frequencies[29]++;
+                }
+                break;
+                case 31: {
+                    frequencies[30]++;
+                }
+                break;
+                case 32: {
+                    frequencies[31]++;
+                }
+                break;
+                case 33: {
+                    frequencies[32]++;
+                }
+                break;
+                case 34: {
+                    frequencies[33]++;
+                }
+                break;
+                case 35: {
+                    frequencies[34]++;
+                }
+                break;
+                case 36: {
+                    frequencies[35]++;
+                }
+                break;
+                case 37: {
+                    frequencies[36]++;
+                }
+                break;
+                case 38: {
+                    frequencies[37]++;
+                }
+                break;
+                case 39: {
+                    frequencies[38]++;
+                }
+                break;
+                case 40: {
+                    frequencies[39]++;
+                }
+                break;
+                case 41: {
+                    frequencies[40]++;
+                }
+                break;
+                case 42: {
+                    frequencies[41]++;
+                }
+                break;
+                case 43: {
+                    frequencies[42]++;
+                }
+                break;
+                case 44: {
+                    frequencies[43]++;
+                }
+                break;
+                case 45: {
+                    frequencies[44]++;
+                }
+                break;
+                case 46: {
+                    frequencies[45]++;
+                }
+                break;
+                case 47: {
+                    frequencies[46]++;
+                }
+                break;
+                case 48: {
+                    frequencies[47]++;
+                }
+                break;
+                case 49: {
+                    frequencies[48]++;
+                }
+                break;
+            }
+
+            // INTEX 5
+            switch (item.getIntex5()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+                case 21: {
+                    frequencies[20]++;
+                }
+                break;
+                case 22: {
+                    frequencies[21]++;
+                }
+                break;
+                case 23: {
+                    frequencies[22]++;
+                }
+                break;
+                case 24: {
+                    frequencies[23]++;
+                }
+                break;
+                case 25: {
+                    frequencies[24]++;
+                }
+                break;
+                case 26: {
+                    frequencies[25]++;
+                }
+                break;
+                case 27: {
+                    frequencies[26]++;
+                }
+                break;
+                case 28: {
+                    frequencies[27]++;
+                }
+                break;
+                case 29: {
+                    frequencies[28]++;
+                }
+                break;
+                case 30: {
+                    frequencies[29]++;
+                }
+                break;
+                case 31: {
+                    frequencies[30]++;
+                }
+                break;
+                case 32: {
+                    frequencies[31]++;
+                }
+                break;
+                case 33: {
+                    frequencies[32]++;
+                }
+                break;
+                case 34: {
+                    frequencies[33]++;
+                }
+                break;
+                case 35: {
+                    frequencies[34]++;
+                }
+                break;
+                case 36: {
+                    frequencies[35]++;
+                }
+                break;
+                case 37: {
+                    frequencies[36]++;
+                }
+                break;
+                case 38: {
+                    frequencies[37]++;
+                }
+                break;
+                case 39: {
+                    frequencies[38]++;
+                }
+                break;
+                case 40: {
+                    frequencies[39]++;
+                }
+                break;
+                case 41: {
+                    frequencies[40]++;
+                }
+                break;
+                case 42: {
+                    frequencies[41]++;
+                }
+                break;
+                case 43: {
+                    frequencies[42]++;
+                }
+                break;
+                case 44: {
+                    frequencies[43]++;
+                }
+                break;
+                case 45: {
+                    frequencies[44]++;
+                }
+                break;
+                case 46: {
+                    frequencies[45]++;
+                }
+                break;
+                case 47: {
+                    frequencies[46]++;
+                }
+                break;
+                case 48: {
+                    frequencies[47]++;
+                }
+                break;
+                case 49: {
+                    frequencies[48]++;
+                }
+                break;
+            }
+
+            // INTEX 6
+            switch (item.getIntex6()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+                case 21: {
+                    frequencies[20]++;
+                }
+                break;
+                case 22: {
+                    frequencies[21]++;
+                }
+                break;
+                case 23: {
+                    frequencies[22]++;
+                }
+                break;
+                case 24: {
+                    frequencies[23]++;
+                }
+                break;
+                case 25: {
+                    frequencies[24]++;
+                }
+                break;
+                case 26: {
+                    frequencies[25]++;
+                }
+                break;
+                case 27: {
+                    frequencies[26]++;
+                }
+                break;
+                case 28: {
+                    frequencies[27]++;
+                }
+                break;
+                case 29: {
+                    frequencies[28]++;
+                }
+                break;
+                case 30: {
+                    frequencies[29]++;
+                }
+                break;
+                case 31: {
+                    frequencies[30]++;
+                }
+                break;
+                case 32: {
+                    frequencies[31]++;
+                }
+                break;
+                case 33: {
+                    frequencies[32]++;
+                }
+                break;
+                case 34: {
+                    frequencies[33]++;
+                }
+                break;
+                case 35: {
+                    frequencies[34]++;
+                }
+                break;
+                case 36: {
+                    frequencies[35]++;
+                }
+                break;
+                case 37: {
+                    frequencies[36]++;
+                }
+                break;
+                case 38: {
+                    frequencies[37]++;
+                }
+                break;
+                case 39: {
+                    frequencies[38]++;
+                }
+                break;
+                case 40: {
+                    frequencies[39]++;
+                }
+                break;
+                case 41: {
+                    frequencies[40]++;
+                }
+                break;
+                case 42: {
+                    frequencies[41]++;
+                }
+                break;
+                case 43: {
+                    frequencies[42]++;
+                }
+                break;
+                case 44: {
+                    frequencies[43]++;
+                }
+                break;
+                case 45: {
+                    frequencies[44]++;
+                }
+                break;
+                case 46: {
+                    frequencies[45]++;
+                }
+                break;
+                case 47: {
+                    frequencies[46]++;
+                }
+                break;
+                case 48: {
+                    frequencies[47]++;
+                }
+                break;
+                case 49: {
+                    frequencies[48]++;
+                }
+                break;
+            }
+        }
+
+        // preparing ABSOLUTES
+        List<Integer> absolutes = new ArrayList<>(Arrays.asList(frequencies).subList(0, 49));
+
+        // preparing RELATIVES
+        List<Integer> relatives = new ArrayList<>();
+        Integer minim = Collections.min(absolutes);
+        for (Integer item : absolutes) {
+            relatives.add(item - minim);
+        }
+
+        // FREQUENCIES ready
+        LOTODB.setAbsolutes(absolutes);
+        LOTODB.setRelatives(relatives);
+    }
+
+
+    /* ==================================================> getters & setters */
+
+    public List<Single> getSingles() {
+        return singles;
+    }
+
+    public void setSingles(List<Single> singles) {
+        this.singles = singles;
+    }
+
     public List<Sample> getSamples() {
         return samples;
     }
@@ -119,19 +1356,19 @@ public class LotoDatabase {
         this.samples = samples;
     }
 
-    public List<Integer> getAbsoluteFrequencies() {
-        return absoluteFrequencies;
+    public List<Integer> getAbsolutes() {
+        return absolutes;
     }
 
-    public void setAbsoluteFrequencies(List<Integer> absoluteFrequencies) {
-        this.absoluteFrequencies = absoluteFrequencies;
+    public void setAbsolutes(List<Integer> absolutes) {
+        this.absolutes = absolutes;
     }
 
-    public List<Integer> getRelativeFrequencies() {
-        return relativeFrequencies;
+    public List<Integer> getRelatives() {
+        return relatives;
     }
 
-    public void setRelativeFrequencies(List<Integer> relativeFrequencies) {
-        this.relativeFrequencies = relativeFrequencies;
+    public void setRelatives(List<Integer> relatives) {
+        this.relatives = relatives;
     }
 }

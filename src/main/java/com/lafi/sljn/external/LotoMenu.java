@@ -15,7 +15,7 @@ public class LotoMenu {
 
         boolean exitLotoMenu = false;
         do {
-            displayLotoMenu();
+            displayMenu();
 
             int selectedOption = ConsoleMenu.selectValidOption();
 
@@ -25,15 +25,15 @@ public class LotoMenu {
                 }
                 break;
                 case 1: {
-                    LotoMenu.readLotoResource();
+                    LotoMenu.readResource();
                 }
                 break;
                 case 2: {
-                    LotoMenu.readLotoDatabase();
+                    LotoMenu.readDatabase();
                 }
                 break;
                 case 3: {
-                    System.out.println("LOTO => option 3");
+                    LotoMenu.readFrequencies();
                 }
                 break;
                 default: {
@@ -44,7 +44,20 @@ public class LotoMenu {
         } while (!exitLotoMenu);
     }
 
-    private static void readLotoResource() {
+    private static void displayMenu() {
+        System.out.println("+-------------------+");
+        System.out.println("| LOTO MENU         |");
+        System.out.println("|-------------------|");
+        System.out.println("| 0. Exit           |");
+        System.out.println("| 1. Load resource  |");
+        System.out.println("| 2. Load database  |");
+        System.out.println("| 3. Frequencies    |");
+        System.out.println("+-------------------+");
+
+        System.out.println(SELECT_OPTION);
+    }
+
+    private static void readResource() {
         System.out.println(LOTO_LOADING);
 
         try {
@@ -57,22 +70,13 @@ public class LotoMenu {
         System.out.println(LOTO_PRINTING);
     }
 
-    private static void readLotoDatabase() {
-        ConsoleMenu.displaySamples(LOTODB.getSamples());
+    private static void readDatabase() {
+        ConsoleMenu.displaySamples(LOTODB.getSamples(), 49);
 
         System.out.println(LOTO_DATABASE);
     }
 
-    private static void displayLotoMenu() {
-        System.out.println("+-------------------+");
-        System.out.println("| LOTO MENU         |");
-        System.out.println("|-------------------|");
-        System.out.println("| 0. Exit Loto      |");
-        System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. Load database  |");
-        System.out.println("| 3. no name option |");
-        System.out.println("+-------------------+");
-
-        System.out.println(SELECT_OPTION);
+    private static void readFrequencies() {
+        ConsoleMenu.displayFrequencies(LOTODB.getAbsolutes(), LOTODB.getRelatives(), 49);
     }
 }

@@ -27,6 +27,7 @@ public class ConsoleMenu {
 
         // LOTO database
         LotoDatabase.loadResource();
+        LotoDatabase.loadFrequencies();
 
         // JOKER database
         JokerDatabase.loadResource();
@@ -134,11 +135,28 @@ public class ConsoleMenu {
         }
     }
 
-    static void displaySamples(List<Sample> samples) {
+    static void displaySamples(List<Sample> samples, int maxim) {
 
-        System.out.println(OUTSIDE_LINE_48);
-        System.out.println(TEXT_LINE_48);
-        System.out.println(INSIDE_LINE_48);
+        System.out.println(OUTSIDE_LINE_TAB_0);
+
+        switch (maxim) {
+            case 40: {
+                System.out.println(FIRST_LINE_SUPER_TAB_0);
+            }
+            break;
+            case 49: {
+                System.out.println(FIRST_LINE_LOTO_TAB_0);
+            }
+            break;
+            case 45: {
+                System.out.println(FIRST_LINE_JOKER_TAB_0);
+            }
+            break;
+        }
+
+        System.out.println(INSIDE_LINE_TAB_0);
+        System.out.println(SECOND_LINE_TAB_0);
+        System.out.println(INSIDE_LINE_TAB_0);
 
         for (Sample item : samples) {
 
@@ -229,19 +247,34 @@ public class ConsoleMenu {
             System.out.println();
         }
 
-        System.out.println(INSIDE_LINE_48);
-        System.out.println(TEXT_LINE_48);
-        System.out.println(OUTSIDE_LINE_48);
+        System.out.println(INSIDE_LINE_TAB_0);
+        System.out.println(SECOND_LINE_TAB_0);
+        System.out.println(OUTSIDE_LINE_TAB_0);
     }
 
-    static void displayFrequencies(List<Integer> absolutes, List<Integer> relatives) {
-        System.out.println(OUTSIDE_LINE_32);
-        System.out.println(FIRST_LINE_32);
-        System.out.println(INSIDE_LINE_32);
-        System.out.println(SECOND_LINE_32);
-        System.out.println(INSIDE_LINE_32);
+    static void displayFrequencies(List<Integer> absolutes, List<Integer> relatives, int maxim) {
+        System.out.println(OUTSIDE_LINE_TAB_1);
 
-        for (int k = 1; k < 41; k++) {
+        switch (maxim) {
+            case 40: {
+                System.out.println(FIRST_LINE_SUPER_TAB_1);
+            }
+            break;
+            case 49: {
+                System.out.println(FIRST_LINE_LOTO_TAB_1);
+            }
+            break;
+            case 45: {
+                System.out.println(FIRST_LINE_JOKER_TAB_1);
+            }
+            break;
+        }
+
+        System.out.println(INSIDE_LINE_TAB_1);
+        System.out.println(SECOND_LINE_TAB_1);
+        System.out.println(INSIDE_LINE_TAB_1);
+
+        for (int k = 1; k < maxim + 1; k++) {
             System.out.print("| ");
             if (k < 10) {
                 System.out.print("0" + k + "     ");
@@ -267,6 +300,8 @@ public class ConsoleMenu {
             System.out.println();
         }
 
-        System.out.println(OUTSIDE_LINE_32);
+        System.out.println(INSIDE_LINE_TAB_1);
+        System.out.println(SECOND_LINE_TAB_1);
+        System.out.println(OUTSIDE_LINE_TAB_1);
     }
 }
