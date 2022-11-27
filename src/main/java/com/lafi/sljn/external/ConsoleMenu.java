@@ -30,7 +30,8 @@ public class ConsoleMenu {
         LotoDatabase.loadFrequencies();
 
         // JOKER database
-        JokerDatabase.loadResource();
+        JokerDatabase.loadResources();
+        JokerDatabase.loadFrequencies();
 
         // Console Menus
         boolean exitMainMenu = false;

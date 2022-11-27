@@ -15,7 +15,7 @@ public class JokerMenu {
 
         boolean exitJokerMenu = false;
         do {
-            displayJokerMenu();
+            displayMenu();
 
             int selectedOption = ConsoleMenu.selectValidOption();
 
@@ -25,15 +25,15 @@ public class JokerMenu {
                 }
                 break;
                 case 1: {
-                    JokerMenu.readJokerResource();
+                    JokerMenu.readResource();
                 }
                 break;
                 case 2: {
-                    JokerMenu.readJokerDatabase();
+                    JokerMenu.readDatabase();
                 }
                 break;
                 case 3: {
-                    System.out.println("JOKER => option 3");
+                    JokerMenu.readFrequencies();
                 }
                 break;
                 default: {
@@ -44,7 +44,20 @@ public class JokerMenu {
         } while (!exitJokerMenu);
     }
 
-    private static void readJokerResource() {
+    private static void displayMenu() {
+        System.out.println("+-------------------+");
+        System.out.println("| JOKER MENU        |");
+        System.out.println("|-------------------|");
+        System.out.println("| 0. Exit           |");
+        System.out.println("| 1. Load resource  |");
+        System.out.println("| 2. Load database  |");
+        System.out.println("| 3. Frequencies    |");
+        System.out.println("+-------------------+");
+
+        System.out.println(SELECT_OPTION);
+    }
+
+    private static void readResource() {
         System.out.println(JOKER_LOADING);
 
         try {
@@ -57,22 +70,13 @@ public class JokerMenu {
         System.out.println(JOKER_PRINTING);
     }
 
-    private static void readJokerDatabase() {
+    private static void readDatabase() {
         ConsoleMenu.displaySamples(JOKERDB.getSamples(), 45);
 
         System.out.println(JOKER_DATABASE);
     }
 
-    private static void displayJokerMenu() {
-        System.out.println("+-------------------+");
-        System.out.println("| JOKER MENU        |");
-        System.out.println("|-------------------|");
-        System.out.println("| 0. Exit Joker     |");
-        System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. Load database  |");
-        System.out.println("| 3. no name option |");
-        System.out.println("+-------------------+");
-
-        System.out.println(SELECT_OPTION);
+    private static void readFrequencies() {
+        ConsoleMenu.displayFrequencies(JOKERDB.getAbsolutes(), JOKERDB.getRelatives(), 45);
     }
 }
