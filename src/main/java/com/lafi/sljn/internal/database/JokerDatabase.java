@@ -28,6 +28,8 @@ public class JokerDatabase {
     // database frequencies
     private List<Integer> absolutes = new ArrayList<>();
     private List<Integer> relatives = new ArrayList<>();
+    private List<Integer> specialAbsolutes = new ArrayList<>();
+    private List<Integer> specialRelatives = new ArrayList<>();
 
     // constructor
     private JokerDatabase() {
@@ -1058,6 +1060,115 @@ public class JokerDatabase {
         JOKERDB.setRelatives(relatives);
     }
 
+    public static void loadSpecialFrequencies() {
+        List<Sample> samples = JOKERDB.getSamples();
+
+        Integer[] frequencies = new Integer[20];
+        for (int k = 0; k < 20; k++) {
+            frequencies[k] = 0;
+        }
+
+        for (Sample item : samples) {
+            // INTEX 6
+            switch (item.getIntex6()) {
+                case 1: {
+                    frequencies[0]++;
+                }
+                break;
+                case 2: {
+                    frequencies[1]++;
+                }
+                break;
+                case 3: {
+                    frequencies[2]++;
+                }
+                break;
+                case 4: {
+                    frequencies[3]++;
+                }
+                break;
+                case 5: {
+                    frequencies[4]++;
+                }
+                break;
+                case 6: {
+                    frequencies[5]++;
+                }
+                break;
+                case 7: {
+                    frequencies[6]++;
+                }
+                break;
+                case 8: {
+                    frequencies[7]++;
+                }
+                break;
+                case 9: {
+                    frequencies[8]++;
+                }
+                break;
+                case 10: {
+                    frequencies[9]++;
+                }
+                break;
+                case 11: {
+                    frequencies[10]++;
+                }
+                break;
+                case 12: {
+                    frequencies[11]++;
+                }
+                break;
+                case 13: {
+                    frequencies[12]++;
+                }
+                break;
+                case 14: {
+                    frequencies[13]++;
+                }
+                break;
+                case 15: {
+                    frequencies[14]++;
+                }
+                break;
+                case 16: {
+                    frequencies[15]++;
+                }
+                break;
+                case 17: {
+                    frequencies[16]++;
+                }
+                break;
+                case 18: {
+                    frequencies[17]++;
+                }
+                break;
+                case 19: {
+                    frequencies[18]++;
+                }
+                break;
+                case 20: {
+                    frequencies[19]++;
+                }
+                break;
+            }
+        }
+
+        // preparing SPECIAL ABSOLUTES
+        List<Integer> specialAbsolutes = new ArrayList<>(Arrays.asList(frequencies).subList(0, 20));
+
+        // preparing SPECIAL RELATIVES
+        List<Integer> specialRelatives = new ArrayList<>();
+        Integer minim = Collections.min(specialAbsolutes);
+        for (Integer item : specialAbsolutes) {
+            specialRelatives.add(item - minim);
+        }
+
+        // SPECIAL FREQUENCIES ready
+        JOKERDB.setSpecialAbsolutes(specialAbsolutes);
+        JOKERDB.setSpecialRelatives(specialRelatives);
+    }
+
     /* ==================================================> getters & setters */
 
     public List<Single> getSingles() {
@@ -1090,5 +1201,21 @@ public class JokerDatabase {
 
     public void setRelatives(List<Integer> relatives) {
         this.relatives = relatives;
+    }
+
+    public List<Integer> getSpecialAbsolutes() {
+        return specialAbsolutes;
+    }
+
+    public void setSpecialAbsolutes(List<Integer> specialAbsolutes) {
+        this.specialAbsolutes = specialAbsolutes;
+    }
+
+    public List<Integer> getSpecialRelatives() {
+        return specialRelatives;
+    }
+
+    public void setSpecialRelatives(List<Integer> specialRelatives) {
+        this.specialRelatives = specialRelatives;
     }
 }

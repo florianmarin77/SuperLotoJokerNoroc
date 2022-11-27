@@ -34,6 +34,7 @@ public class JokerMenu {
                 break;
                 case 3: {
                     JokerMenu.readFrequencies();
+                    JokerMenu.readSpecialFrequencies();
                 }
                 break;
                 default: {
@@ -78,5 +79,9 @@ public class JokerMenu {
 
     private static void readFrequencies() {
         ConsoleMenu.displayFrequencies(JOKERDB.getAbsolutes(), JOKERDB.getRelatives(), 45);
+    }
+
+    private static void readSpecialFrequencies() {
+        ConsoleMenu.displayFrequencies(JOKERDB.getSpecialAbsolutes(), JOKERDB.getSpecialRelatives(), 20);
     }
 }

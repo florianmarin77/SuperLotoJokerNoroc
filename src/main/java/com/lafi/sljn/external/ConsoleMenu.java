@@ -32,6 +32,7 @@ public class ConsoleMenu {
         // JOKER database
         JokerDatabase.loadResources();
         JokerDatabase.loadFrequencies();
+        JokerDatabase.loadSpecialFrequencies();
 
         // Console Menus
         boolean exitMainMenu = false;
@@ -265,7 +266,8 @@ public class ConsoleMenu {
                 System.out.println(FIRST_LINE_LOTO_TAB_1);
             }
             break;
-            case 45: {
+            case 45:
+            case 20: {
                 System.out.println(FIRST_LINE_JOKER_TAB_1);
             }
             break;
