@@ -24,6 +24,7 @@ public class ConsoleMenu {
         // SUPER database
         SuperDatabase.loadResources();
         SuperDatabase.loadFrequencies();
+        SuperDatabase.loadDistances();
 
         // LOTO database
         LotoDatabase.loadResource();
@@ -137,11 +138,11 @@ public class ConsoleMenu {
         }
     }
 
-    static void displaySamples(List<Sample> samples, int maxim) {
+    static void displaySamples(List<Sample> samples, int marker) {
 
         System.out.println(OUTSIDE_LINE_TAB_0);
 
-        switch (maxim) {
+        switch (marker) {
             case 40: {
                 System.out.println(FIRST_LINE_SUPER_TAB_0);
             }
@@ -254,10 +255,10 @@ public class ConsoleMenu {
         System.out.println(OUTSIDE_LINE_TAB_0);
     }
 
-    static void displayFrequencies(List<Integer> absolutes, List<Integer> relatives, int maxim) {
+    static void displayFrequencies(List<Integer> absolutes, List<Integer> relatives, int marker) {
         System.out.println(OUTSIDE_LINE_TAB_1);
 
-        switch (maxim) {
+        switch (marker) {
             case 40: {
                 System.out.println(FIRST_LINE_SUPER_TAB_1);
             }
@@ -277,7 +278,7 @@ public class ConsoleMenu {
         System.out.println(SECOND_LINE_TAB_1);
         System.out.println(INSIDE_LINE_TAB_1);
 
-        for (int k = 1; k < maxim + 1; k++) {
+        for (int k = 1; k < marker + 1; k++) {
             System.out.print("| ");
             if (k < 10) {
                 System.out.print("0" + k + "     ");
@@ -306,5 +307,68 @@ public class ConsoleMenu {
         System.out.println(INSIDE_LINE_TAB_1);
         System.out.println(SECOND_LINE_TAB_1);
         System.out.println(OUTSIDE_LINE_TAB_1);
+    }
+
+    static void displayDistances(List<Integer> indexes, List<Integer> positives, List<Integer> negatives, int marker) {
+        System.out.println(OUTSIDE_LINE_TAB_2);
+
+        switch (marker) {
+            case 40: {
+                System.out.println(FIRST_LINE_SUPER_TAB_2);
+            }
+            break;
+            case 49: {
+                System.out.println(FIRST_LINE_LOTO_TAB_1);
+            }
+            break;
+            case 45:
+            case 20: {
+                System.out.println(FIRST_LINE_JOKER_TAB_1);
+            }
+            break;
+        }
+
+        System.out.println(INSIDE_LINE_TAB_2);
+        System.out.println(SECOND_LINE_TAB_2);
+        System.out.println(INSIDE_LINE_TAB_2);
+
+        for (int k = 1; k < marker + 1; k++) {
+            System.out.print("| ");
+            if (k < 10) {
+                System.out.print("0" + k + "     ");
+            } else {
+                System.out.print(k + "     ");
+            }
+
+            final int firstSpaces = 5;
+            final int secondSpaces = 8;
+            final int thirdSpaces = 8;
+
+            int firstDigits = String.valueOf(indexes.get(k - 1)).length();
+            int secondDigits = String.valueOf(positives.get(k - 1)).length();
+            int thirdDigits = String.valueOf(negatives.get(k - 1)).length();
+
+            System.out.print("| " + indexes.get(k - 1));
+            for (int i = 0; i < firstSpaces - firstDigits; i++) {
+                System.out.print(" ");
+            }
+
+            System.out.print(" | " + positives.get(k - 1));
+            for (int i = 0; i < secondSpaces - secondDigits; i++) {
+                System.out.print(" ");
+            }
+
+            System.out.print(" | " + negatives.get(k - 1));
+            for (int i = 0; i < thirdSpaces - thirdDigits; i++) {
+                System.out.print(" ");
+            }
+
+            System.out.print(" |");
+            System.out.println();
+        }
+
+        System.out.println(INSIDE_LINE_TAB_2);
+        System.out.println(SECOND_LINE_TAB_2);
+        System.out.println(OUTSIDE_LINE_TAB_2);
     }
 }

@@ -36,6 +36,10 @@ public class SuperMenu {
                     SuperMenu.readFrequencies();
                 }
                 break;
+                case 4: {
+                    SuperMenu.readDistances();
+                }
+                break;
                 default: {
                     System.out.println(INVALID_OPTION);
                 }
@@ -45,14 +49,15 @@ public class SuperMenu {
     }
 
     private static void displayMenu() {
-        System.out.println("+-------------------+");
-        System.out.println("| SUPER MENU        |");
-        System.out.println("|-------------------|");
-        System.out.println("| 0. Exit           |");
-        System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. Load database  |");
-        System.out.println("| 3. Frequencies    |");
-        System.out.println("+-------------------+");
+        System.out.println("+------------------------+");
+        System.out.println("| SUPER MENU             |");
+        System.out.println("|------------------------|");
+        System.out.println("| 0. Exit menu           |");
+        System.out.println("| 1. Load resource       |");
+        System.out.println("| 2. Load database       |");
+        System.out.println("| 3. Display frequencies |");
+        System.out.println("| 4. Display distances   |");
+        System.out.println("+------------------------+");
 
         System.out.println(SELECT_OPTION);
     }
@@ -78,5 +83,9 @@ public class SuperMenu {
 
     private static void readFrequencies() {
         ConsoleMenu.displayFrequencies(SUPERDB.getAbsolutes(), SUPERDB.getRelatives(), 40);
+    }
+
+    private static void readDistances() {
+        ConsoleMenu.displayDistances(SUPERDB.getIndexes(), SUPERDB.getPositives(), SUPERDB.getNegatives(), 40);
     }
 }
