@@ -90,12 +90,12 @@ public class SuperDatabase {
             intex[5] = sample.getIntex6();
 
             Integer[] codex = {0, 0, 0, 0, 0};
-            Integer[] decada = new Integer[6];
+            Integer[] decade = new Integer[6];
             StringBuilder string = new StringBuilder();
 
             for (int i = 0; i < 6; i++) {
-                decada[i] = intex[i] / 10;
-                codex[decada[i]]++;
+                decade[i] = intex[i] / 10;
+                codex[decade[i]]++;
             }
 
             Arrays.sort(codex, Collections.reverseOrder());

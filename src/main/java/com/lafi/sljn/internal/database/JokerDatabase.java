@@ -86,12 +86,12 @@ public class JokerDatabase {
             intex[4] = sample.getIntex5();
 
             Integer[] codex = {0, 0, 0, 0, 0};
-            Integer[] decada = new Integer[5];
+            Integer[] decade = new Integer[5];
             StringBuilder string = new StringBuilder();
 
             for (int i = 0; i < 5; i++) {
-                decada[i] = intex[i] / 10;
-                codex[decada[i]]++;
+                decade[i] = intex[i] / 10;
+                codex[decade[i]]++;
             }
 
             Arrays.sort(codex, Collections.reverseOrder());
