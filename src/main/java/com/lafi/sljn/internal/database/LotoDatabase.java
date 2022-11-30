@@ -11,7 +11,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.lafi.sljn.internal.database.Database.*;
+import static com.lafi.sljn.internal.database.Database.LOADER;
+import static com.lafi.sljn.internal.database.Database.LOTODB;
 import static com.lafi.sljn.internal.message.CommonMessages.LOTO_DATABASE;
 import static com.lafi.sljn.internal.message.CommonMessages.LOTO_PATH;
 
