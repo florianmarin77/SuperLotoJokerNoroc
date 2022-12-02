@@ -12,8 +12,8 @@ public class SuperMenu {
     private static final SuperDatabase SUPERDB = SuperDatabase.getInstance();
 
     static void main() {
+        boolean exitMenu = false;
 
-        boolean exitSuperMenu = false;
         do {
             displayMenu();
 
@@ -21,7 +21,7 @@ public class SuperMenu {
 
             switch (selectedOption) {
                 case 0: {
-                    exitSuperMenu = true;
+                    exitMenu = true;
                 }
                 break;
                 case 1: {
@@ -45,7 +45,7 @@ public class SuperMenu {
                 }
                 break;
             }
-        } while (!exitSuperMenu);
+        } while (!exitMenu);
     }
 
     private static void displayMenu() {

@@ -29,7 +29,7 @@ public class SuperDatabase {
     private List<Integer> absolutes = new ArrayList<>();
     private List<Integer> relatives = new ArrayList<>();
 
-    // private database distances
+    // database distances
     private List<Integer> indexes = new ArrayList<>();
     private List<Integer> positives = new ArrayList<>();
     private List<Integer> negatives = new ArrayList<>();
@@ -93,16 +93,16 @@ public class SuperDatabase {
             Integer[] decade = new Integer[6];
             StringBuilder string = new StringBuilder();
 
-            for (int i = 0; i < 6; i++) {
-                decade[i] = intex[i] / 10;
-                codex[decade[i]]++;
+            for (int counter = 0; counter < 6; counter++) {
+                decade[counter] = intex[counter] / 10;
+                codex[decade[counter]]++;
             }
 
             Arrays.sort(codex, Collections.reverseOrder());
 
-            for (int i = 0; i < 5; i++) {
-                if (codex[i] != 0) {
-                    string.append(codex[i].toString());
+            for (int counter = 0; counter < 5; counter++) {
+                if (codex[counter] != 0) {
+                    string.append(codex[counter].toString());
                 }
             }
 
@@ -123,8 +123,8 @@ public class SuperDatabase {
         List<Sample> samples = SUPERDB.getSamples();
 
         Integer[] results = new Integer[40];
-        for (int k = 0; k < 40; k++) {
-            results[k] = 0;
+        for (int counter = 0; counter < 40; counter++) {
+            results[counter] = 0;
         }
 
         for (Sample item : samples) {
@@ -1132,8 +1132,8 @@ public class SuperDatabase {
         List<Sample> samples = SUPERDB.getSamples();
 
         Integer[] results = new Integer[40];
-        for (int k = 0; k < 40; k++) {
-            results[k] = 0;
+        for (int counter = 0; counter < 40; counter++) {
+            results[counter] = 0;
         }
 
         for (Sample item : samples) {

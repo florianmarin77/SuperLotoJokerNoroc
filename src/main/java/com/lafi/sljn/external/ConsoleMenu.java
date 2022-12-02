@@ -27,8 +27,9 @@ public class ConsoleMenu {
         SuperDatabase.loadDistances();
 
         // LOTO database
-        LotoDatabase.loadResource();
+        LotoDatabase.loadResources();
         LotoDatabase.loadFrequencies();
+        LotoDatabase.loadDistances();
 
         // JOKER database
         JokerDatabase.loadResources();
@@ -88,19 +89,6 @@ public class ConsoleMenu {
         System.out.println("Thank you!");
     }
 
-    private static void displayStartMenu() {
-        System.out.println("+---------------+");
-        System.out.println("|  START  MENU  |");
-        System.out.println("|---------------|");
-        System.out.println("| 0. Main menu  |");
-        System.out.println("| 1. Super 5/40 |");
-        System.out.println("| 2. Loto 6/49  |");
-        System.out.println("| 3. Joker 5/45 |");
-        System.out.println("+---------------+");
-
-        System.out.println(SELECT_OPTION);
-    }
-
     private static void displayMainMenu() {
         System.out.println("+-----------+");
         System.out.println("| MAIN MENU |");
@@ -108,6 +96,19 @@ public class ConsoleMenu {
         System.out.println("| 0. Exit   |");
         System.out.println("| 1. Start  |");
         System.out.println("+-----------+");
+
+        System.out.println(SELECT_OPTION);
+    }
+
+    private static void displayStartMenu() {
+        System.out.println("+---------------+");
+        System.out.println("| START MENU    |");
+        System.out.println("|---------------|");
+        System.out.println("| 0. Main menu  |");
+        System.out.println("| 1. Super 5/40 |");
+        System.out.println("| 2. Loto 6/49  |");
+        System.out.println("| 3. Joker 5/45 |");
+        System.out.println("+---------------+");
 
         System.out.println(SELECT_OPTION);
     }
@@ -139,7 +140,6 @@ public class ConsoleMenu {
     }
 
     static void displaySamples(List<Sample> samples, int marker) {
-
         System.out.println(OUTSIDE_LINE_TAB_0);
 
         switch (marker) {
@@ -162,7 +162,6 @@ public class ConsoleMenu {
         System.out.println(INSIDE_LINE_TAB_0);
 
         for (Sample item : samples) {
-
             System.out.print("| " + item.getDatex() + " | ");
 
             if (item.getIntex1() < 10) {
@@ -278,25 +277,25 @@ public class ConsoleMenu {
         System.out.println(SECOND_LINE_TAB_1);
         System.out.println(INSIDE_LINE_TAB_1);
 
-        for (int k = 1; k < marker + 1; k++) {
+        for (int firstCounter = 1; firstCounter < marker + 1; firstCounter++) {
             System.out.print("| ");
-            if (k < 10) {
-                System.out.print("0" + k + "     ");
+            if (firstCounter < 10) {
+                System.out.print("0" + firstCounter + "     ");
             } else {
-                System.out.print(k + "     ");
+                System.out.print(firstCounter + "     ");
             }
 
-            int absoluteDigits = String.valueOf(absolutes.get(k - 1)).length();
-            int relativeDigits = String.valueOf(relatives.get(k - 1)).length();
+            int absoluteDigits = String.valueOf(absolutes.get(firstCounter - 1)).length();
+            int relativeDigits = String.valueOf(relatives.get(firstCounter - 1)).length();
             final int blankSpaces = 8;
 
-            System.out.print("| " + absolutes.get(k - 1));
-            for (int i = 0; i < blankSpaces - absoluteDigits; i++) {
+            System.out.print("| " + absolutes.get(firstCounter - 1));
+            for (int secondCounter = 0; secondCounter < blankSpaces - absoluteDigits; secondCounter++) {
                 System.out.print(" ");
             }
 
-            System.out.print(" | " + relatives.get(k - 1));
-            for (int i = 0; i < blankSpaces - relativeDigits; i++) {
+            System.out.print(" | " + relatives.get(firstCounter - 1));
+            for (int secondCounter = 0; secondCounter < blankSpaces - relativeDigits; secondCounter++) {
                 System.out.print(" ");
             }
 
@@ -318,12 +317,12 @@ public class ConsoleMenu {
             }
             break;
             case 49: {
-                System.out.println(FIRST_LINE_LOTO_TAB_1);
+                System.out.println(FIRST_LINE_LOTO_TAB_2);
             }
             break;
             case 45:
             case 20: {
-                System.out.println(FIRST_LINE_JOKER_TAB_1);
+                System.out.println(FIRST_LINE_JOKER_TAB_2);
             }
             break;
         }
@@ -332,34 +331,34 @@ public class ConsoleMenu {
         System.out.println(SECOND_LINE_TAB_2);
         System.out.println(INSIDE_LINE_TAB_2);
 
-        for (int k = 1; k < marker + 1; k++) {
+        for (int firstCounter = 1; firstCounter < marker + 1; firstCounter++) {
             System.out.print("| ");
-            if (k < 10) {
-                System.out.print("0" + k + "     ");
+            if (firstCounter < 10) {
+                System.out.print("0" + firstCounter + "     ");
             } else {
-                System.out.print(k + "     ");
+                System.out.print(firstCounter + "     ");
             }
 
             final int firstSpaces = 5;
             final int secondSpaces = 8;
             final int thirdSpaces = 8;
 
-            int firstDigits = String.valueOf(indexes.get(k - 1)).length();
-            int secondDigits = String.valueOf(positives.get(k - 1)).length();
-            int thirdDigits = String.valueOf(negatives.get(k - 1)).length();
+            int firstDigits = String.valueOf(indexes.get(firstCounter - 1)).length();
+            int secondDigits = String.valueOf(positives.get(firstCounter - 1)).length();
+            int thirdDigits = String.valueOf(negatives.get(firstCounter - 1)).length();
 
-            System.out.print("| " + indexes.get(k - 1));
-            for (int i = 0; i < firstSpaces - firstDigits; i++) {
+            System.out.print("| " + indexes.get(firstCounter - 1));
+            for (int secondCounter = 0; secondCounter < firstSpaces - firstDigits; secondCounter++) {
                 System.out.print(" ");
             }
 
-            System.out.print(" | " + positives.get(k - 1));
-            for (int i = 0; i < secondSpaces - secondDigits; i++) {
+            System.out.print(" | " + positives.get(firstCounter - 1));
+            for (int secondCounter = 0; secondCounter < secondSpaces - secondDigits; secondCounter++) {
                 System.out.print(" ");
             }
 
-            System.out.print(" | " + negatives.get(k - 1));
-            for (int i = 0; i < thirdSpaces - thirdDigits; i++) {
+            System.out.print(" | " + negatives.get(firstCounter - 1));
+            for (int secondCounter = 0; secondCounter < thirdSpaces - thirdDigits; secondCounter++) {
                 System.out.print(" ");
             }
 

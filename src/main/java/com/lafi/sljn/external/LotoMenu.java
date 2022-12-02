@@ -12,8 +12,8 @@ public class LotoMenu {
     private static final LotoDatabase LOTODB = LotoDatabase.getInstance();
 
     static void main() {
+        boolean exitMenu = false;
 
-        boolean exitLotoMenu = false;
         do {
             displayMenu();
 
@@ -21,7 +21,7 @@ public class LotoMenu {
 
             switch (selectedOption) {
                 case 0: {
-                    exitLotoMenu = true;
+                    exitMenu = true;
                 }
                 break;
                 case 1: {
@@ -36,23 +36,28 @@ public class LotoMenu {
                     LotoMenu.readFrequencies();
                 }
                 break;
+                case 4: {
+                    LotoMenu.readDistances();
+                }
+                break;
                 default: {
                     System.out.println(INVALID_OPTION);
                 }
                 break;
             }
-        } while (!exitLotoMenu);
+        } while (!exitMenu);
     }
 
     private static void displayMenu() {
-        System.out.println("+-------------------+");
-        System.out.println("| LOTO MENU         |");
-        System.out.println("|-------------------|");
-        System.out.println("| 0. Exit           |");
-        System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. Load database  |");
-        System.out.println("| 3. Frequencies    |");
-        System.out.println("+-------------------+");
+        System.out.println("+------------------------+");
+        System.out.println("| LOTO MENU              |");
+        System.out.println("|------------------------|");
+        System.out.println("| 0. Exit menu           |");
+        System.out.println("| 1. Load resource       |");
+        System.out.println("| 2. Load database       |");
+        System.out.println("| 3. Display frequencies |");
+        System.out.println("| 4. Display distances   |");
+        System.out.println("+------------------------+");
 
         System.out.println(SELECT_OPTION);
     }
@@ -78,5 +83,9 @@ public class LotoMenu {
 
     private static void readFrequencies() {
         ConsoleMenu.displayFrequencies(LOTODB.getAbsolutes(), LOTODB.getRelatives(), 49);
+    }
+
+    private static void readDistances() {
+        ConsoleMenu.displayDistances(LOTODB.getIndexes(), LOTODB.getPositives(), LOTODB.getNegatives(), 49);
     }
 }
