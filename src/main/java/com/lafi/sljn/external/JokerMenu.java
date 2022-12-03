@@ -12,8 +12,8 @@ public class JokerMenu {
     private static final JokerDatabase JOKERDB = JokerDatabase.getInstance();
 
     static void main() {
+        boolean exitMenu = false;
 
-        boolean exitJokerMenu = false;
         do {
             displayMenu();
 
@@ -21,7 +21,7 @@ public class JokerMenu {
 
             switch (selectedOption) {
                 case 0: {
-                    exitJokerMenu = true;
+                    exitMenu = true;
                 }
                 break;
                 case 1: {
@@ -37,23 +37,28 @@ public class JokerMenu {
                     JokerMenu.readSpecialFrequencies();
                 }
                 break;
+                case 4: {
+                    JokerMenu.readDistances();
+                    JokerMenu.readSpecialDistances();
+                }
                 default: {
                     System.out.println(INVALID_OPTION);
                 }
                 break;
             }
-        } while (!exitJokerMenu);
+        } while (!exitMenu);
     }
 
     private static void displayMenu() {
-        System.out.println("+-------------------+");
-        System.out.println("| JOKER MENU        |");
-        System.out.println("|-------------------|");
-        System.out.println("| 0. Exit           |");
-        System.out.println("| 1. Load resource  |");
-        System.out.println("| 2. Load database  |");
-        System.out.println("| 3. Frequencies    |");
-        System.out.println("+-------------------+");
+        System.out.println("+------------------------+");
+        System.out.println("| JOKER MENU             |");
+        System.out.println("|------------------------|");
+        System.out.println("| 0. Exit menu           |");
+        System.out.println("| 1. Load resource       |");
+        System.out.println("| 2. Load database       |");
+        System.out.println("| 3. Display frequencies |");
+        System.out.println("| 4. Display distances   |");
+        System.out.println("+------------------------+");
 
         System.out.println(SELECT_OPTION);
     }
@@ -83,5 +88,13 @@ public class JokerMenu {
 
     private static void readSpecialFrequencies() {
         ConsoleMenu.displayFrequencies(JOKERDB.getSpecialAbsolutes(), JOKERDB.getSpecialRelatives(), 20);
+    }
+
+    private static void readDistances() {
+        ConsoleMenu.displayDistances(JOKERDB.getIndexes(), JOKERDB.getPositives(), JOKERDB.getNegatives(), 45);
+    }
+
+    private static void readSpecialDistances() {
+        ConsoleMenu.displayDistances(JOKERDB.getSpecialIndexes(), JOKERDB.getSpecialPositives(), JOKERDB.getSpecialNegatives(), 20);
     }
 }

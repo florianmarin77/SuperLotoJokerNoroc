@@ -35,6 +35,8 @@ public class ConsoleMenu {
         JokerDatabase.loadResources();
         JokerDatabase.loadFrequencies();
         JokerDatabase.loadSpecialFrequencies();
+        JokerDatabase.loadDistances();
+        JokerDatabase.loadSpecialDistances();
 
         // Console Menus
         boolean exitMainMenu = false;
