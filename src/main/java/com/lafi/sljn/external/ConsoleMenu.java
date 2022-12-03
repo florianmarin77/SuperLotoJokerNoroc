@@ -3,12 +3,9 @@ package com.lafi.sljn.external;
 import com.lafi.sljn.internal.database.JokerDatabase;
 import com.lafi.sljn.internal.database.LotoDatabase;
 import com.lafi.sljn.internal.database.SuperDatabase;
-import com.lafi.sljn.internal.loader.ResourceLoader;
 import com.lafi.sljn.internal.model.Sample;
 import com.lafi.sljn.internal.model.Single;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -131,11 +128,7 @@ public class ConsoleMenu {
         return selectedOption;
     }
 
-    static void displaySingles(Path path) {
-        ResourceLoader loader = new ResourceLoader();
-
-        List<Single> singles = loader.loadData(Paths.get(String.valueOf(path)));
-
+    static void displaySingles(List<Single> singles, int marker) {
         for (Single item : singles) {
             System.out.println(item);
         }

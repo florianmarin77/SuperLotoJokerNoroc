@@ -2,10 +2,6 @@ package com.lafi.sljn.external;
 
 import com.lafi.sljn.internal.database.JokerDatabase;
 
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class JokerMenu {
@@ -66,12 +62,7 @@ public class JokerMenu {
     private static void readResource() {
         System.out.println(JOKER_LOADING);
 
-        try {
-            Path path = Paths.get(ClassLoader.getSystemResource(JOKER_PATH).toURI());
-            ConsoleMenu.displaySingles(path);
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-        }
+        ConsoleMenu.displaySingles(JOKERDB.getSingles(), 45);
 
         System.out.println(JOKER_PRINTING);
     }

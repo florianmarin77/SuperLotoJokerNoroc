@@ -2,10 +2,6 @@ package com.lafi.sljn.external;
 
 import com.lafi.sljn.internal.database.SuperDatabase;
 
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class SuperMenu {
@@ -65,12 +61,7 @@ public class SuperMenu {
     private static void readResource() {
         System.out.println(SUPER_LOADING);
 
-        try {
-            Path path = Paths.get(ClassLoader.getSystemResource(SUPER_PATH).toURI());
-            ConsoleMenu.displaySingles(path);
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-        }
+        ConsoleMenu.displaySingles(SUPERDB.getSingles(), 40);
 
         System.out.println(SUPER_PRINTING);
     }

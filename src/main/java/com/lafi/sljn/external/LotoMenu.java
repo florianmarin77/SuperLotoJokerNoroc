@@ -2,10 +2,6 @@ package com.lafi.sljn.external;
 
 import com.lafi.sljn.internal.database.LotoDatabase;
 
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import static com.lafi.sljn.internal.message.CommonMessages.*;
 
 public class LotoMenu {
@@ -65,12 +61,7 @@ public class LotoMenu {
     private static void readResource() {
         System.out.println(LOTO_LOADING);
 
-        try {
-            Path path = Paths.get(ClassLoader.getSystemResource(LOTO_PATH).toURI());
-            ConsoleMenu.displaySingles(path);
-        } catch (URISyntaxException exception) {
-            exception.printStackTrace();
-        }
+        ConsoleMenu.displaySingles(LOTODB.getSingles(), 49);
 
         System.out.println(LOTO_PRINTING);
     }
