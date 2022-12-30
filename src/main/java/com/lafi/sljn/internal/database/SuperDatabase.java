@@ -34,6 +34,9 @@ public class SuperDatabase {
     private List<Integer> positives = new ArrayList<>();
     private List<Integer> negatives = new ArrayList<>();
 
+    // database structures
+    private List<String> structures = new ArrayList<>();
+
     // constructor
     private SuperDatabase() {
         // prevent instantiation
@@ -2141,6 +2144,18 @@ public class SuperDatabase {
         SUPERDB.setNegatives(negatives);
     }
 
+    public static void loadStructures() {
+        List<Sample> samples = SUPERDB.getSamples();
+
+        String[] results = new String[10];
+
+        results[0] = "6";
+
+        // todo
+
+        results[9] = "21111";
+    }
+
     /* ==================================================> getters & setters */
 
     public List<Single> getSingles() {
@@ -2197,5 +2212,13 @@ public class SuperDatabase {
 
     public void setNegatives(List<Integer> negatives) {
         this.negatives = negatives;
+    }
+
+    public List<String> getStructures() {
+        return structures;
+    }
+
+    public void setStructures(List<String> structures) {
+        this.structures = structures;
     }
 }
