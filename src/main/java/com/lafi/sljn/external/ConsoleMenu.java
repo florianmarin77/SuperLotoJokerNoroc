@@ -23,7 +23,7 @@ public class ConsoleMenu {
         SuperDatabase.loadFrequencies();
         SuperDatabase.loadDistances();
 
-        // LOTO database11
+        // LOTO database
         LotoDatabase.loadResources();
         LotoDatabase.loadFrequencies();
         LotoDatabase.loadDistances();
