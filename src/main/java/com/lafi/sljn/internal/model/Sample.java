@@ -1,135 +1,44 @@
 package com.lafi.sljn.internal.model;
 
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sample {
+    private final String datex;
+    private final List<Integer> intex;   // Cele 5 sau 6 numere principale
+    private final Integer special;       // Jokerul (sau null pentru Loto/Super)
+    private final String codex;
+    private final int index;
 
-    // DATEX este data extragerii
-    private String datex;
-
-    // INTEX este întregul extragerii
-    private Integer intex1;
-    private Integer intex2;
-    private Integer intex3;
-    private Integer intex4;
-    private Integer intex5;
-    private Integer intex6;
-
-    // CODEX este codificarea extragerii
-    private String codex;
-
-    // INDEX este indicativul extragerii
-    private Integer index;
-
-    /* ==================================================> constructors */
-
-    public Sample() {
-        // empty constructor by default
-    }
-
-    public Sample(String datex, Integer intex1, Integer intex2, Integer intex3, Integer intex4, Integer intex5, Integer intex6, String codex, Integer index) {
+    public Sample(String datex, List<Integer> mainNumbers, Integer special, int index) {
         this.datex = datex;
-        this.intex1 = intex1;
-        this.intex2 = intex2;
-        this.intex3 = intex3;
-        this.intex4 = intex4;
-        this.intex5 = intex5;
-        this.intex6 = intex6;
-        this.codex = codex;
+        this.intex = new ArrayList<>(mainNumbers);
+        this.special = special;
         this.index = index;
+        this.codex = calculateCodex(mainNumbers);
     }
 
-    /* ==================================================> getters & setters */
-
-    public String getDatex() {
-        return datex;
+    private String calculateCodex(List<Integer> numbers) {
+        int[] decades = new int[5];
+        for (int num : numbers) {
+            int d = num / 10;
+            if (d >= 0 && d < 5) decades[d]++;
+        }
+        List<Integer> counts = new ArrayList<>();
+        for (int count : decades) {
+            if (count > 0) counts.add(count);
+        }
+        counts.sort(Collections.reverseOrder());
+        return counts.stream().map(String::valueOf).collect(Collectors.joining());
     }
 
-    public void setDatex(String datex) {
-        this.datex = datex;
-    }
-
-    public Integer getIntex1() {
-        return intex1;
-    }
-
-    public void setIntex1(Integer intex1) {
-        this.intex1 = intex1;
-    }
-
-    public Integer getIntex2() {
-        return intex2;
-    }
-
-    public void setIntex2(Integer intex2) {
-        this.intex2 = intex2;
-    }
-
-    public Integer getIntex3() {
-        return intex3;
-    }
-
-    public void setIntex3(Integer intex3) {
-        this.intex3 = intex3;
-    }
-
-    public Integer getIntex4() {
-        return intex4;
-    }
-
-    public void setIntex4(Integer intex4) {
-        this.intex4 = intex4;
-    }
-
-    public Integer getIntex5() {
-        return intex5;
-    }
-
-    public void setIntex5(Integer intex5) {
-        this.intex5 = intex5;
-    }
-
-    public Integer getIntex6() {
-        return intex6;
-    }
-
-    public void setIntex6(Integer intex6) {
-        this.intex6 = intex6;
-    }
-
-    public String getCodex() {
-        return codex;
-    }
-
-    public void setCodex(String codex) {
-        this.codex = codex;
-    }
-
-    public Integer getIndex() {
-        return index;
-    }
-
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    /* ==================================================> special methods */
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Sample sample = (Sample) object;
-        return intex1.equals(sample.intex1) && intex2.equals(sample.intex2) && intex3.equals(sample.intex3) && intex4.equals(sample.intex4) && intex5.equals(sample.intex5) && intex6.equals(sample.intex6);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(intex1, intex2, intex3, intex4, intex5, intex6);
-    }
-
-    @Override
-    public String toString() {
-        return "(" + datex + ")=[" + intex1 + "," + intex2 + "," + intex3 + "," + intex4 + "," + intex5 + "," + intex6 + "]={" + codex + "}#" + index;
-    }
+    // Getters
+    public String getDatex() { return datex; }
+    public List<Integer> getIntexList() { return intex; }
+    public String getIntexString() { return intex.toString(); }
+    public Integer getSpecial() { return special; }
+    public String getCodex() { return codex; }
+    public int getIndex() { return index; }
 }
