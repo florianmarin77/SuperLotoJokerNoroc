@@ -35,10 +35,27 @@ public class Sample {
     }
 
     // Getters
-    public String getDatex() { return datex; }
-    public List<Integer> getIntexList() { return intex; }
-    public String getIntexString() { return intex.toString(); }
-    public Integer getSpecial() { return special; }
-    public String getCodex() { return codex; }
-    public int getIndex() { return index; }
+    public String getDatex() {
+        return datex;
+    }
+
+    public List<Integer> getIntexList() {
+        return intex;
+    }
+
+    public String getIntexString() {
+        return intex.toString();
+    }
+
+    public Integer getSpecial() {
+        return special;
+    }
+
+    public String getCodex() {
+        return codex;
+    }
+
+    public int getIndex() {
+        return index;
+    }
 }

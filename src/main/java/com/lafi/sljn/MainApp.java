@@ -125,7 +125,7 @@ public class MainApp extends Application {
             sb.append("Top 3 cei mai frecvenți JOKERI:\n");
             for (int i = 0; i < Math.min(3, sortedSpecials.size()); i++) {
                 Map.Entry<Integer, Integer> entry = sortedSpecials.get(i);
-                sb.append(String.format("   Loc %d: Bila %02d (%d apariții)\n", (i+1), entry.getKey(), entry.getValue()));
+                sb.append(String.format("   Loc %d: Bila %02d (%d apariții)\n", (i + 1), entry.getKey(), entry.getValue()));
             }
 
             sb.append("\nDistribuție JOKER (Bila:Apariții):\n");

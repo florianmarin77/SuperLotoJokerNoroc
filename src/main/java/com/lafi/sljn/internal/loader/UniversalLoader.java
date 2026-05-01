@@ -1,6 +1,7 @@
 package com.lafi.sljn.internal.loader;
 
 import com.lafi.sljn.internal.model.Sample;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 public class UniversalLoader {
 
     /**
-     * @param path Calea către fișier (.txt)
+     * @param path    Calea către fișier (.txt)
      * @param isJoker Dacă este true, ultimul număr va fi tratat ca "Special"
      */
     public List<Sample> loadFromFile(Path path, boolean isJoker) {
